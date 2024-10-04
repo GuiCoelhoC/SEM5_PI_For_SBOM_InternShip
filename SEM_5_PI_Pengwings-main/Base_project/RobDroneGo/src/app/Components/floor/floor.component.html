@@ -1,0 +1,16 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateFloorTab()"> Create Floor </button>
+  <button class = "button-tab" (click) = "showListFloorTab()"> List Floor </button>
+  <button class = "button-tab" (click) = "showListFloorPassageTab()"> List Floor With Passage </button>
+  <button class = "button-tab" (click) = "showUpdateFloorTab()"> Update Floor </button>
+  <button class = "button-tab" (click) = "showUpdateMapTab()"> Update Map </button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+<div class = "app-container">
+  <app-create-floor *ngIf="createFloorTab"></app-create-floor>
+  <app-list-floor *ngIf="listFloorTab"></app-list-floor>
+  <app-list-floor-with-passage *ngIf="listFloorPassageTab"></app-list-floor-with-passage>
+  <app-update-floor *ngIf="updateFloorTab"></app-update-floor>
+  <app-update-map *ngIf="updateMapTab"></app-update-map>
+</div>

@@ -1,0 +1,30 @@
+<!-- Topbar -->
+  
+
+<body>
+  <div class="topbar" role="topbar">
+    <div class="topbar-left">
+      <div class="brand">
+        <a href="/">RobDroneGo</a>
+      </div>
+    </div>
+
+    <div class="topbar-middle">
+    <a routerLink="/menu-account"><button class="button2" style="vertical-align:middle"><span>Your Account</span></button></a>
+    </div>
+
+    <div class="topbar-right" role="topbar-right">
+      <a href="https://www.isep.ipp.pt/" target="_blank">ISEP</a>
+      <br>
+      <a> © Group 20 2023|2024</a>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  
+  <div class="isep_banner" role="isep_banner">
+    <img src="assets/img/isep_logo.png" width="200px" height="67px">
+  </div>
+
+  <script src="app.component.ts"></script>
+</body>

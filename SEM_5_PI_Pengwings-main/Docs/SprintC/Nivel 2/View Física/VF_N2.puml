@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam node{
+    backgroundColor #lightblue
+}
+
+skinparam component{
+    backgroundColor #lightblue
+}
+
+skinparam componentFontStyle<<component>> bold
+
+node "localhost:??" as Host_F {
+  component "Browser" <<component>> as B{
+    component UI <<component>> as "UI"
+  }
+}
+
+node Remote_F as "Remote Server" {
+    component CM <<component>> as "Campus Management"
+    component FM <<component>> as "Fleet Management"
+    component Planning <<component>> as "Planning"
+    component TM <<component>> as "Task Management"
+    component UM <<component>> as "User Management"
+}
+
+
+
+
+Host_F -d- Remote_F: http/s
+
+@enduml

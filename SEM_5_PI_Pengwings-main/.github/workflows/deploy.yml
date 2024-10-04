@@ -1,0 +1,60 @@
+env:
+  SERVER_USERNAME: root
+  SERVER_PASSWORD: password123
+  SERVER_HOST: vsgate-ssh.dei.isep.ipp.pt
+  SERVER_PORT: 11137
+
+name: Angular, .NET & Node.JS Deployment on the Virtual Machine (PIPELINE)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: .NET Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SERVER_HOST }}
+          port: ${{ env.SERVER_PORT }}
+          username: ${{ env.SERVER_USERNAME }}
+          password: ${{ env.SERVER_PASSWORD }}
+          script: |
+            cd /home/server/SEM_5_PI_Pengwings/Base_project/
+            git pull
+            cd DroneAPI_Test
+            dotnet test
+
+      - name: Node.js Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SERVER_HOST }}
+          port: ${{ env.SERVER_PORT }}
+          username: ${{ env.SERVER_USERNAME }}
+          password: ${{ env.SERVER_PASSWORD }}
+          script: |
+            cd /home/server/SEM_5_PI_Pengwings/Base_project/
+            git pull
+            npm install
+
+      - name: Angular Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: vsgate-ssh.dei.isep.ipp.pt
+          port: 11137
+          username: ${{ env.SERVER_USERNAME }}
+          password: ${{ env.SERVER_PASSWORD }}
+          script: |
+            cd /home/server/SEM_5_PI_Pengwings/Base_project/
+            git pull
+            cd RobDroneGo
+            node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/
+            cd
+            sudo cp -r /home/server/SEM_5_PI_Pengwings/Base_project/RobDroneGo* /var/www/html/
+            sudo service apache2 restart
+            

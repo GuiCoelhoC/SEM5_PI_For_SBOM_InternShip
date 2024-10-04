@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor FleetManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request inhibit robot
+activate UI
+UI -> R : patch('/api/robot')
+
+activate R
+|||
+R -> R : inhibits robot, saves and returns it
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+deactivate UI
+@enduml

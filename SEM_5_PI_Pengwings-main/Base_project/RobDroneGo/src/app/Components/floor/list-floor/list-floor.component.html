@@ -1,0 +1,25 @@
+<body class="list-text">
+<main class="list-floor">
+  <div>
+    <div>
+      <label for = "selectedBuilding">Select a Building </label>
+      <select id = "selectedBuilding" [(ngModel)]=" selectedBuilding" (change)="onSelectedBuilding()">
+        <option *ngFor = "let building of buildingList" [ngValue]="building">{{building.code}}</option>
+      </select>
+    </div>
+    <h2>Available Floors Of Building</h2>
+    <div class="card-container" *ngIf="floorList && floorList.length > 0">
+      <div *ngFor="let floor of floorList" class="card">
+        <div class="floor-icon" role="floor-icon">
+          <img src="assets/img/floor-icon.png" width="60px" height="60px">
+        </div>
+        <strong>Number:</strong> {{ floor.floorNumber }} <br>
+        <strong>Building:</strong> {{ floor.building}} <br>
+        <strong>Description:</strong> {{ floor.description}} <br>
+        <strong>Width:</strong> {{ floor.width}} <br>
+        <strong>Length:</strong> {{ floor.length }} <br>
+      </div>
+    </div>
+  </div>
+</main>
+</body>

@@ -1,0 +1,121 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant CreatingDTO as CDTO
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : patch('/api/elevator/update')
+
+activate R
+
+R -> C : patch
+
+activate C
+
+C -> CDTO : receives body info
+
+activate CDTO
+
+CDTO -> M : ToDTO
+
+activate M
+
+M -> DTO : new DTO
+
+activate DTO
+
+DTO -> M : return DTO
+
+deactivate DTO
+
+M -> CDTO : return DTO
+
+deactivate M
+
+CDTO -> C : return DTO
+
+deactivate CDTO
+
+C -> S : function call to service
+
+activate S
+
+S -> Repo : get elevator
+
+activate Repo
+
+S -> Repo : get building
+
+S -> Repo : get floors
+
+alt building == null || elevator == null || floors == null
+
+Repo -> S : return null
+
+C -> R : status 404
+R -> UI : error message
+
+else building != null || elevator != null || floors != null
+
+Repo -> M : toDomain
+
+activate M
+
+M -> D : updates Domain Object
+
+activate D
+
+D -> M : return Object
+
+deactivate D
+
+M -> Repo : return Object
+
+deactivate M
+
+Repo -> S : return Object
+
+deactivate Repo
+
+S -> D : update information
+
+activate D
+deactivate D
+
+S-> Repo : update elevator
+
+activate Repo
+
+Repo -> M : toDTO
+
+activate M
+deactivate M
+
+Repo -> S : return DTO
+
+deactivate Repo
+
+S-> C : return DTO
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+end alt
+
+@enduml

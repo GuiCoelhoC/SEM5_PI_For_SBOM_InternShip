@@ -1,0 +1,31 @@
+<body class="text-center">
+  <div class="form-floating">
+    <label for="floatingRobotCode">Robot code</label>
+    <input type="text" id="floatingRobotCode" placeholder="Max 30 chars" required = "true">
+
+    <label for="floatingRobotName">Robot Name</label>
+    <input type="text" id="floatingRobotName" placeholder="Max 30 chars" required>
+
+    <label for="floatingRobotSerialNumber">Robot Serial Number</label>
+    <input type="text" id="floatingRobotSerialNumber" placeholder="Max 50 chars" required>
+
+    <label for="floatingRobotDescription">Robot Description</label>
+    <input type="text" id="floatingRobotDescription" placeholder="Max 250 chars" required>
+
+    <label for="typeSelected">Robot Type</label>
+    <select id="typeSelected" [(ngModel)]="typeSelected">
+      <option *ngFor="let type of types" [ngValue]="type">{{type.type}}</option>
+    </select>
+
+    <div class = "form-robotType">
+      <form *ngIf = "typeSelected" (ngValue)="typeSelected">
+        <div><strong>Type </strong> = {{typeSelected.type}}</div>
+        <div><strong>Brand </strong> = {{typeSelected.brand}} </div>
+        <div><strong>Model </strong> = {{typeSelected.model}} </div>
+        <div><strong>Tasks </strong> = {{typeSelected.tasks}} </div>
+      </form>
+    </div>
+
+    <button class="submit-button" type="submit" (click)="createRobot()"> Create Robot </button>
+  </div>
+</body>

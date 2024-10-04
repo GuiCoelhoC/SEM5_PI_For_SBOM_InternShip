@@ -1,0 +1,9 @@
+<div class = "top_menu">
+    <button class = "button-tab" (click) = "showCreateRoomTab()"> Create Room </button>
+    <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+
+<div class = "app-container">
+    <app-room-create *ngIf="createRoomTab"></app-room-create>
+</div>

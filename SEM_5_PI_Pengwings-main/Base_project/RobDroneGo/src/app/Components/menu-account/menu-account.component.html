@@ -1,0 +1,15 @@
+<div class = "top_menu">
+    <button class = "button-tab" (click) = "showUpdateAccountTab()"> Update Account</button>
+    <button class = "button-tab" (click) = "showAccountInformationTab()"> Account Information </button>
+    <button class = "button-tab" (click) = "showDeleteAccountTab()"> Delete Account </button>
+    <button class = "button-tab" (click) = "showCreateAssignmentTab()"> Create Assignment </button>
+    <button class = "button-back" (click) = "back()"> Back</button>
+</div>
+
+
+<div class = "app-container">
+    <app-update-account *ngIf="updateAccountTab"></app-update-account>
+    <app-info-account *ngIf="accountInformationTab"></app-info-account>
+    <app-delete-account *ngIf="deleteAccountTab"></app-delete-account>
+    <app-create-assignment *ngIf="createAssignmentTab"></app-create-assignment>
+</div>

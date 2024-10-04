@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-container" *ngIf="UserFound == true">
+                <div class="card">
+                    <strong>Name:</strong> {{ User.firstName }} {{User.lastName}}<br>
+                    <strong>Email:</strong> {{ User.email }}<br>
+                    <strong>Phone Number:</strong> {{ User.phoneNumber }}<br>
+                    <strong>Role:</strong> {{ User.role }}<br>
+                    <strong>Password:</strong> ***** <br>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

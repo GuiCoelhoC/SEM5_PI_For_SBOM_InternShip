@@ -1,0 +1,12 @@
+<div class = "top_menu">
+    <button class = "button-tab" (click)="showCreatePassageTab()">Create Passage</button>
+    <button class = "button-tab" (click)="showUpdatePassageTab()">Update Passage</button>
+    <button class = "button-tab" (click)="showListPassageTab()">Show List of Passage</button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+<div class = "app-container">
+    <app-create-passage *ngIf="createPassageTab"></app-create-passage>
+    <app-update-passage *ngIf="updatePassageTab"></app-update-passage>
+    <app-list-passages *ngIf="listPassageTab"></app-list-passages>
+</div>

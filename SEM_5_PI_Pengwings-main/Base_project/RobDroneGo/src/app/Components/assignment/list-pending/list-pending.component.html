@@ -1,0 +1,20 @@
+<body class="list-text">
+<main class="pending-list">
+  <div>
+    <h2>Available Assignments:</h2>
+    <div class="card-container" *ngIf="assignments && assignments.length > 0">
+      <div *ngFor="let assignment of assignments" class="card">
+        <div class="floor-icon" role="floor-icon">
+          <img src="assets/img/Assignments-icon.png" width="60px" height="60px">
+        </div>
+        <strong>Start Point:</strong> {{ assignment.startPoint}} <br>
+        <strong>End Point:</strong> {{ assignment.endPoint}} <br>
+        <strong>Status:</strong> {{ assignment.status}} <br>
+        <strong>Type:</strong> {{ assignment.type }} <br>
+        <strong>User:</strong> {{ assignment.email }} <br>
+        <strong>Name:</strong> {{ assignment.name }} <br>
+      </div>
+    </div>
+  </div>
+</main>
+</body>

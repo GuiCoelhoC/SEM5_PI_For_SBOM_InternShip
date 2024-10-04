@@ -1,0 +1,27 @@
+@startuml
+
+actor User
+participant FrontEnd as FE
+participant MD as MD
+
+activate User
+User -> FE: want to update their profile
+activate FE
+FE -> MD: request(token)
+activate MD
+MD -> FE: return user data
+deactivate MD
+FE -> User : show user data
+deactivate FE
+
+User -> FE: data
+activate FE
+FE -> MD: request(token, data)
+activate MD
+MD -> FE: return updated
+deactivate MD
+FE -> User : show success message
+deactivate FE
+deactivate User
+
+@enduml

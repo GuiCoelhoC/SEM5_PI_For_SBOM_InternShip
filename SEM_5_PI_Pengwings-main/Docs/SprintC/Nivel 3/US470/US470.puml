@@ -1,0 +1,83 @@
+@startuml
+
+actor "Task Manager" as AM
+participant View as V
+participant Component as C
+participant FrontEndService as FES
+participant AssignmentController as AC
+participant AssignmentService as AS
+participant AssignmentRepository as AR
+participant CreatingAssignmentDto as dto
+participant Assignment as A
+
+activate AM
+AM -> V: wants to accept/reject assignments
+activate V
+V -> C: getPendingAssignments()
+activate C
+C -> FES: getPendingAssignments()
+activate FES
+FES -> FES: token = getToken()
+FES -> AC: getPendingAssignments(token)
+activate AC
+AC -> AS: getAllPendingAsync(token)
+activate AS
+AS -> AS: verifyRole(token)
+AS -> AR: getAllPendingAsync()
+activate AR
+AR -> AR: get all assignments with status == AssignmentStatus.Pending
+AR -> AS: return assignments
+deactivate AR
+AS -> AC: return assignments as AssignmentsDto
+deactivate AS
+AC -> FES: return assignments
+deactivate AC
+FES -> C: return assignments
+deactivate FES
+C -> V: display assignments
+deactivate C
+V -> AM: shows assignments with accepts / rejects button
+deactivate V
+AM -> V: accepts/rejects assignment
+activate V
+V -> C: accepts(assignment) / rejects(assignment)
+activate C
+C -> C: status = "accepted" / "rejected"
+C -> C: changeStatus(assignment, status)
+C -> FES: changeStatus(assignment.id, status)
+activate FES
+FES -> FES: token = getToken()
+FES -> AC: changeStatus(token, assignment.id, status)
+activate AC
+AC -> AS: changeStatusAsync(token, assignment.id, status)
+activate AS
+AS -> AS: verifyRole(token)
+AS -> AR: changeStatusAsync(assignment.id, status)
+activate AR
+AR -> AR: get assignment with id == assignment.id
+AR -> AS: return assignment
+deactivate AR
+alt status == "accepted"
+AS -> A: accept()
+activate A
+A -> A: status = "accepted"
+deactivate A
+else status == "rejected"
+AS -> A: reject()
+activate A
+A -> A: status = "rejected"
+deactivate A
+end
+
+AS -> AC: return assignment
+deactivate AS
+AC -> FES: return assignment
+deactivate AC
+FES -> C: return success
+deactivate FES
+C -> V: display success message
+deactivate C
+V -> AM: shows success message
+deactivate V
+
+@enduml

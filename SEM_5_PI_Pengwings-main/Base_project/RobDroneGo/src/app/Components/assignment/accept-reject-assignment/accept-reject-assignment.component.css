@@ -1,0 +1,27 @@
+.accept-reject-list{
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  overflow: auto;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.card{
+  float: left;
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.card:hover{
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.6);
+}
+
+.floor-icon{
+  position: relative;
+  right: 0px;
+  top: 0px;
+}
+

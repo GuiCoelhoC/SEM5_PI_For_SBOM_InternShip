@@ -1,0 +1,9 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateRoleTab()"> Create Role </button>
+  <button class = "button-back"> Back </button>
+</div>
+
+<div class = "app-container">
+  <app-create-role *ngIf="createRoleTab"></app-create-role>
+</div>
+

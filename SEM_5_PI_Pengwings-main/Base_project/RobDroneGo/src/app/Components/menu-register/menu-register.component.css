@@ -1,0 +1,49 @@
+.text-center {
+    box-shadow: 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);
+    position: relative;
+    top: 200px;
+    left: 25%;
+    width: 50%;
+    margin: 0;
+    word-wrap: break-word;
+    background-color: #DDDDDD;
+    border: 3px solid #DDDDDD;
+    padding: 0px;
+    z-index: 0;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .form-floating {
+    display: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-control {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #A1A1A1;
+  }
+
+  .label{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #A1A1A1;
+  }
+
+  .submit-button {
+    text-align: center;
+    position: relative;
+    background-color: #A1A1A1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  

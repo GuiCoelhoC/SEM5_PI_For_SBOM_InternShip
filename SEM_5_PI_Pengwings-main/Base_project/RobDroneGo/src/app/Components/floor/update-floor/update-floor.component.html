@@ -1,0 +1,40 @@
+<body class="text-center">
+  <div class="form-floating">
+    <label for="buildingSelected">Building Code</label>
+    <select id="buildingSelected" [(ngModel)]="buildingSelected" (change)="onSelectBuilding()">
+      <option *ngFor="let building of buildings" [ngValue]="building">{{building.code}}</option>
+    </select>
+
+    <div class = "form-building">
+      <form *ngIf = "buildingSelected" (ngValue)="buildingSelected">
+        <div><strong>Code </strong> = {{buildingSelected.code}}</div>
+        <div><strong>Name </strong> = {{buildingSelected.name}} </div>
+        <div><strong>Description </strong> = {{buildingSelected.description}} </div>
+        <div><strong>Max Width </strong> = {{buildingSelected.widthMax}} </div>
+        <div><strong>Max Length </strong> = {{buildingSelected.lengthMax}} </div>
+      </form>
+    </div>
+
+    <label for="floorSelected">Floor Number</label>
+    <select id="floorSelected" [(ngModel)]="floorSelected">
+      <option *ngFor="let floor of floors" [ngValue]="floor">{{floor.floorNumber}}</option>
+    </select>
+
+    <div class = "form-floor">
+      <form *ngIf = "floorSelected" (ngValue)="floorSelected">
+        <div><strong>Floor number </strong> = {{floorSelected.floorNumber}}</div>
+        <div><strong>Description </strong> = {{floorSelected.description}} </div>
+        <div><strong>Width </strong> = {{floorSelected.width}} </div>
+        <div><strong>Length </strong> = {{floorSelected.length}} </div>
+      </form>
+    </div>
+
+    <label for="floatingNewFloorNumber">New Floor Number</label>
+    <input type="number" id="floatingNewFloorNumber" placeholder="New Floor Number">
+
+    <label for="floatingFloorDescription">Floor Description</label>
+    <input type="text" id="floatingFloorDescription" placeholder="Floor Description" required>
+
+    <button class="submit-button" type="submit" (click)="updateFloor()"> Update Floor </button>
+  </div>
+</body>

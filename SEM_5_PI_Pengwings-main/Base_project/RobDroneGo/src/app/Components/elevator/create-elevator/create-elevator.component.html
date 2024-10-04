@@ -1,0 +1,41 @@
+<body class="text-center">
+<div class="form-floating">
+  <label for="buildingSelected">Building Code</label>
+  <select id="buildingSelected" [(ngModel)]="buildingSelected" (change)="onSelectedBuilding()" >
+    <option *ngFor = "let building of buildings" [ngValue]="building">{{building.code}}</option>
+  </select>
+
+  <div class="form-building">
+    <form *ngIf="buildingSelected" (ngValue)="buildingSelected">
+      <div><strong>Code:</strong> {{ buildingSelected.code }}</div>
+      <div><strong>Name:</strong> {{ buildingSelected.name }}</div>
+      <div><strong>Description:</strong> {{ buildingSelected.description }} </div>
+      <div><strong>Max Width:</strong> {{ buildingSelected.widthMax }}</div>
+      <div><strong>Max Length:</strong> {{ buildingSelected.lengthMax }}</div>
+    </form>
+  </div>
+
+  <div id="floorSelection">
+    <label>Select Floors: </label>
+    <div *ngFor="let floor of buildingFloors; let i = index">
+      <input type="checkbox" id="floor{{i}}" (change)="updateSelectedFloors(i)">
+      <label for="floor{{i}}">{{ floor.floorNumber }}</label>
+    </div>
+  </div>
+
+  <label for="brand">Brand</label>
+  <input type="text" id="brand" placeholder="Brand" required>
+
+  <label for="model">Model</label>
+  <input type="text" id="model" placeholder="Model" required>
+
+  <label for="serialNumber">Serial Number</label>
+  <input type="text" id="serialNumber" placeholder="Serial Number" required>
+
+  <label for="description">Description</label>
+  <input type="text" id="description" placeholder="Description" required>
+
+    <button class="submit-button" type="submit" (click)="onCreate()"> Create Elevator </button>
+  </div>
+</body>
+

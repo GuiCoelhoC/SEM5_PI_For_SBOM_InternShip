@@ -1,0 +1,50 @@
+@startuml
+
+actor User
+participant View
+participant RegisterComponent as RComponent
+participant ConsentComponent as CComponent
+participant FrontEndService as FES
+participant UserController as UC
+participant UserService as US
+participant UserRepository as UR
+
+activate User
+User -> View : requests registration
+activate View
+View -> User : shows register form
+deactivate View
+
+User -> View : fills in form
+activate View
+View -> CComponent : Activate
+activate CComponent
+CComponent -> View : Open consent form
+View -> User : shows consent form
+
+User -> View : accept consent
+View -> CComponent : accept consent
+deactivate CComponent
+View -> RComponent : send register form
+activate RComponent
+RComponent -> FES : register(data)
+activate FES
+FES -> UC : register(data)
+activate UC
+UC -> US : create(dto)
+activate US
+US -> UR : save(user)
+activate UR
+UR -> US : user
+deactivate UR
+US -> UC : user
+deactivate US
+UC -> FES : resolve(user)
+deactivate UC
+FES -> RComponent : resolve(user)
+deactivate FES
+RComponent -> View : resolve(user)
+deactivate RComponent
+View -> User : shows success message
+
+@enduml

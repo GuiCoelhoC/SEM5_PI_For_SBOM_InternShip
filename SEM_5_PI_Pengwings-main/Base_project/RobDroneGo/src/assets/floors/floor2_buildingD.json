@@ -1,0 +1,153 @@
+{
+    "maze": {
+        "size": {
+            "width": 12,
+            "depth": 20
+        },
+        "map": [
+          [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+          [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [3, 2, 2, 2, 1, 0, 0, 3, 2, 2, 2, 2, 1],
+          [1, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [3, 2, 2, 2, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 4, 0, 0, 4, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+          [3, 2, 2, 2, 1, 0, 0, 2, 3, 2, 2, 2, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+          [1, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+          [1, 0, 0, 0, 3, 2, 5, 2, 2, 2, 2, 2, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+          [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0]
+        ],
+      "passageLocation": [
+        [1, 12],
+        [2, 12]
+      ],
+      "passageDestination": [
+        "./assets/floors/floor2_buildingC.json",
+        "./assets/floors/floor4_buildingC.json"
+      ],
+      "elevatorFloors": [
+        "./assets/floors/floor1_buildingD.json",
+        "./assets/floors/floor3_buildingD.json"
+      ],
+      "roomNames": [
+        "D201",
+        "D203",
+        "D202",
+        "D205",
+        "D204",
+        "D206"
+      ]
+    },
+    "ground": {
+        "size": {
+            "width": 12.0,
+            "height": 0.0625,
+            "depth": 20.0
+        },
+        "segments": {
+            "width": 1,
+            "height": 1,
+            "depth": 1
+        },
+        "primaryColor": "0xffffff",
+        "maps": {
+            "color": {
+                "url": "./assets/textures/plank_flooring_4k/plank_flooring_02_diff_4k.jpg"
+            },
+            "ao": {
+                "url": "./assets/textures/plank_flooring_4k/plank_flooring_02_disp_4k.png",
+                "intensity": 1.0
+            },
+            "displacement": {
+                "url": "",
+                "scale": 1.0,
+                "bias": 0.0
+            },
+            "normal": {
+                "url": "./assets/textures/plank_flooring_4k/plank_flooring_02_nor_gl_4k.png",
+                "type": 0,
+                "scale": {
+                    "x": 3.0,
+                    "y": 3.0
+                }
+            },
+            "bump": {
+                "url": "",
+                "scale": 1.0
+            },
+            "roughness": {
+                "url": "./assets/textures/plank_flooring_4k/plank_flooring_02_rough_4k.png",
+                "rough": 1.0
+            }
+        },
+        "wrapS": 1,
+        "wrapT": 1,
+        "repeat": {
+            "u": 4.0,
+            "v": 4.0
+        },
+        "magFilter": 1,
+        "minFilter": 5,
+        "secondaryColor": "0x6b554b"
+    },
+    "wall": {
+        "segments": {
+            "width": 1,
+            "height": 1
+        },
+        "primaryColor": "0xffffff",
+        "maps": {
+            "color": {
+                "url": "./assets/textures/grey_plaster_4k.blend/grey_plaster_diff_4k.jpg"
+            },
+            "ao": {
+                "url": "./assets/textures/grey_plaster_4k.blend/grey_plaster_disp_4k.png",
+                "intensity": 1.0
+            },
+            "displacement": {
+                "url": "",
+                "scale": 1.0,
+                "bias": 0.0
+            },
+            "normal": {
+                "url": "./assets/textures/grey_plaster_4k.blend/grey_plaster_nor_gl_4k.png",
+                "type": 0,
+                "scale": {
+                    "x": 3.0,
+                    "y": 3.0
+                }
+            },
+            "bump": {
+                "url": "",
+                "scale": 1.0
+            },
+            "roughness": {
+                "url": "./assets/textures/grey_plaster_4k.blend/grey_plaster_rough_4k.jpg",
+                "rough": 1.0
+            }
+        },
+        "wrapS": 1,
+        "wrapT": 0,
+        "repeat": {
+            "u": 3.0,
+            "v": 1.0
+        },
+        "magFilter": 1,
+        "minFilter": 5,
+        "secondaryColor": "0x6b554b"
+    },
+    "player": {
+        "initialPosition": [2.0, 2.0],
+        "initialDirection": 0.0
+    }
+}

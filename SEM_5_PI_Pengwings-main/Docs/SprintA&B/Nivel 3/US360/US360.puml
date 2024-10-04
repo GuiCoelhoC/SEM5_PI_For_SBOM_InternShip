@@ -1,0 +1,88 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant CreatingDTO as CDTO
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : post('/api/robo/create')
+
+activate R
+
+R -> C : post
+
+activate C
+
+C -> CDTO : recives body info
+
+activate CDTO
+
+CDTO -> M : ToDTO
+
+activate M
+
+M -> DTO : new DTO
+
+activate DTO
+
+DTO -> M : return DTO
+
+deactivate DTO
+
+M -> CDTO : return DTO
+
+deactivate M
+
+CDTO -> C : return DTO
+
+deactivate CDTO
+
+C -> S : chamada do serviço de robo
+
+activate S
+
+S -> M : toDomain
+
+activate M
+
+M -> D : cria objecto de dominio
+
+activate D
+
+D -> M : return objecto
+
+deactivate D
+
+M -> S : return objecto
+
+deactivate M
+
+S -> Repo : save robo
+
+activate Repo
+
+Repo -> S : return dto de robo
+
+deactivate Repo
+
+S-> C : return dto
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+@enduml

@@ -1,0 +1,68 @@
+@startuml
+
+actor Admin as Admin
+
+participant View as View
+participant Component as Comp
+participant FrontEndService as FES
+participant UserController as UC
+participant UserService as US
+participant UserRepository as UR
+
+activate Admin
+Admin -> View : wants to add a user
+activate View
+View -> Admin : shows form to add a user
+deactivate View
+Admin -> View : fills the form
+activate View
+View -> Comp : createUser(data, token)
+activate Comp
+Comp -> FES : createUser(data, token)
+activate FES
+
+FES -> UC : post(dto, token)
+activate UC
+UC -> US : getRole(token)
+activate US
+US -> US : decodeJWTRole(token)
+US -> UC : return role
+deactivate US
+UC -> UC : check if role is ADMIN
+UC -> US : getemail(dto.email)
+activate US
+US -> UR : findByEmail(dto.email)
+activate UR
+alt email found
+UR -> US : return user
+US -> UC : return user
+UC -> FES : message = "Email already exists"
+FES -> Comp : message = "Email already exists"
+Comp -> View : message = "Email already exists"
+View -> Admin : message = "Email already exists"
+end
+UR -> US : return null
+deactivate UR
+US -> UC : return null
+deactivate US
+
+UC -> US : create(dto)
+
+activate US
+US -> User : user = new User(dto, Status = ACTIVE)
+US -> UR : save(user)
+activate UR
+deactivate UR
+US -> UC : return user
+deactivate US
+UC -> FES : return message = "User created"
+deactivate UC
+FES -> Comp : return message
+deactivate FES
+Comp -> View : display message
+View -> Admin : shows message
+
+
+
+
+@enduml

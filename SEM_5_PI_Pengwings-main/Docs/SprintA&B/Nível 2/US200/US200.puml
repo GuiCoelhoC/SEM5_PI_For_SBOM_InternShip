@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request update floor
+activate UI
+UI -> R : patch('/api/floor')
+
+activate R
+|||
+R -> R : updates floor, saves \n and returns it
+|||
+R -> UI : response status
+deactivate R
+UI -> U : operation success
+deactivate UI
+
+@enduml
+

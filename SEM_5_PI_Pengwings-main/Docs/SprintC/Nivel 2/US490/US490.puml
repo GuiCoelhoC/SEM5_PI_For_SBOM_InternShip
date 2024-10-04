@@ -1,0 +1,24 @@
+@startuml
+
+actor "Task Manager" as AM
+participant FrontEnd as FE
+participant MD as MD
+
+activate AM
+AM -> FE: want to see all assignments
+activate FE
+FE -> FE: token = getToken()
+FE -> MD: getAllAssignments(token)
+activate MD
+MD -> MD: validate token
+MD -> MD: assignments = getAllAssignments()
+MD -> FE: assignments
+deactivate MD
+FE -> User: display all assignments
+
+User -> FE: sort assignments by {type, status, ...}
+
+FE -> FE: sort assignments
+FE -> User: show sorted assignments
+
+@enduml

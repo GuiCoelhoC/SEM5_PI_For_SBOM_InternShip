@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant System
+
+activate User
+User -> System: requests to create a new account
+activate System
+System -> User: shows consent form
+deactivate System
+User -> System: agrees to consent form
+
+activate System
+System -> System: register new user
+activate System
+deactivate System
+System -> User: shows success message
+deactivate System
+deactivate User
+@enduml

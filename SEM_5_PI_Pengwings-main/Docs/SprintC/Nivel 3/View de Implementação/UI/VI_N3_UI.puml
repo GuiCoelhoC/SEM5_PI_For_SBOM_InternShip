@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam folder {
+    backgroundColor #80f0ff
+}
+
+
+skinparam component {
+    backgroundColor #80f0ff
+}
+
+    interface Cam_UI_I as "**UI Campus**"
+    interface F_UI_I as "**UI Fleet**"
+    interface Cam_API_I as "**API Campus**"
+    interface F_API_I as "**API Fleet**"
+
+component UI_I <<component>><<container(C4)>>as "FrontEnd (UI)"{
+
+    port " " as p1_I
+    port " " as p2_I
+    port " " as p3_I
+    port " " as p4_I
+
+
+    folder Angular_I as "Angular Component"{
+        component HTML_I <<component>> as "**HTML + CSS + JS**"{
+            port " " as pH1_I
+            port " " as pH2_I
+
+            pH1_I - p1_I
+            pH2_I - p2_I
+        }
+        component Component_I <<component>> as "**Component**"
+        interface C_API_I as "**Component API**"
+
+        HTML_I -down-( C_API_I
+        Component_I -up- C_API_I
+    }
+
+    interface Observer_I as "**Observer API**"
+    component Service_I <<component>> as "**Service**"
+    interface S_API_I as "**Service API**"
+    component Model_I <<component>> as "**Model**"
+    interface M_API_I as "**Model API**"
+    component Driver_I <<component>> as "**HTTP Driver**"{
+        port " " as pD1_I
+        port " " as pD2_I
+
+        pD1_I -u- p3_I
+        pD2_I -u- p4_I
+    }
+    interface D_API_I as "**HTTP Driver API**"
+
+    Service_I -r- S_API_I
+    Model_I -- M_API_I
+    Driver_I -r- D_API_I
+
+    Component_I -r-( Observer_I
+    Model_I -l-- Observer_I
+
+    Component_I -down-( S_API_I
+    Component_I --( M_API_I
+
+    Service_I -r-( D_API_I
+    Service_I --( M_API_I
+
+    Driver_I --( M_API_I
+
+    p1_I -up- Cam_UI_I
+    p2_I -up- F_UI_I
+    p3_I -up-( Cam_API_I
+    p4_I -up-( F_API_I
+
+
+    Service_I -[hidden]up--- Component_I
+    Model_I -[hidden]up--- Driver_I
+    HTML_I -[hidden]right--- Component_I
+    Driver_I -[hidden]d--- Angular_I
+}
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+
+U -> UI : requests list floors with passages
+activate UI
+UI -> R : get('/api/floors/listFloorsWithPassages)
+
+activate R
+|||
+R -> R : finds all floors \n with passages to other buildings
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+
+
+@enduml

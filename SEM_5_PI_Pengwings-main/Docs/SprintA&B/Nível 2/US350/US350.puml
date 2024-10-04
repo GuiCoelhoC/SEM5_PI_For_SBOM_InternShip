@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor FleetManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request create robotType
+activate UI
+UI -> R : post('/api/robotType')
+
+activate R
+|||
+R -> R : creates robot type \n saves and returns it
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+deactivate UI
+
+@enduml

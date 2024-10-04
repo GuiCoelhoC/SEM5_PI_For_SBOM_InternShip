@@ -1,0 +1,79 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : get('/api/buildings/list')
+
+activate R
+
+R -> C : get
+
+activate C
+
+C -> S : chamada do serviço de piso
+
+activate S
+
+S -> Repo : get buildings
+
+activate Repo
+
+Repo -> M : toDomain
+
+activate M
+
+M -> D : cria objecto de dominio
+
+activate D
+
+D -> M : return objecto
+
+deactivate D
+
+M -> Repo : return objecto
+
+deactivate M
+
+Repo -> S : return lista de objectos
+
+deactivate Repo
+
+S -> M : toDTO(lista)
+
+activate M
+
+M -> DTO : cria lista de dtos
+
+activate DTO
+DTO -> M : return lista de dtos
+deactivate DTO
+
+M -> S : return lista de dtos
+
+deactivate M
+
+S-> C : return list de dtos
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+
+
+@enduml

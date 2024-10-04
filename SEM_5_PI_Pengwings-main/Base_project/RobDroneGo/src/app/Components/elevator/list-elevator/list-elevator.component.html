@@ -1,0 +1,34 @@
+<div class="content">
+    <div class="title">
+        <h1>Elevator Listing</h1>
+    </div>
+
+    <div class="form">
+
+
+          <div>
+            <label for = "selectedBuilding">Select Building: </label>
+            <select id = "selectedBuilding" [(ngModel)]=" building" (change)="onList()">
+              <option *ngFor = "let building of buildingList" [ngValue]="building">{{building.code}}</option>
+            </select>
+          </div>
+
+            <main class="list-elevators">
+                <div>
+                    <h1> Elevators on the database:</h1>
+                    <div *ngIf="elevators && elevators.length > 0" class="card-container">
+                        <div *ngFor="let elevator of elevators" class="card">
+                            <strong> Code: </strong> {{ elevator.code }} <br>
+                            <strong> Building: </strong> {{ elevator.building }} <br>
+                            <strong> Floors: </strong> {{ elevator.floors }} <br>
+                            <strong> Brand: </strong> {{ elevator.brand }} <br>
+                            <strong> Model: </strong> {{ elevator.model }} <br>
+                            <strong> Serial Number: </strong> {{ elevator.serialNumber }} <br>
+                            <strong> Description: </strong> {{ elevator.description }} <br>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
+</div>
+

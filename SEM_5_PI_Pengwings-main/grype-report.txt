@@ -1,0 +1,97 @@
+NAME                                   INSTALLED                                                   FIXED-IN  TYPE       VULNERABILITY        SEVERITY 
+@babel/traverse                        7.16.3                                                      7.23.2    npm        GHSA-67hx-6x53-jw92  Critical  
+Azure.Identity                         1.6.0                                                       1.10.2    dotnet     GHSA-5mfx-4wcx-rv27  High      
+Azure.Identity                         1.6.0                                                       1.11.0    dotnet     GHSA-wvxc-855f-jvrv  Medium    
+Azure.Identity                         1.6.0                                                       1.11.4    dotnet     GHSA-m5vv-6r4h-3vj9  Medium    
+Microsoft.Data.SqlClient               5.0.1                                                       5.1.3     dotnet     GHSA-98g6-xh36-x2p7  High      
+Microsoft.IdentityModel.JsonWebTokens  7.0.3                                                       7.1.2     dotnet     GHSA-59j7-ghrg-fj52  Medium    
+Microsoft.IdentityModel.JsonWebTokens  7.0.3.41017013651.bb354ceabed19189245e075abb864f327b6c14ad  
+7.1.2     dotnet     GHSA-59j7-ghrg-fj52  Medium    
+System.Drawing.Common                  5.0.0                                                       5.0.3     dotnet     GHSA-rxg9-xrhp-64gj  Critical  
+System.Formats.Asn1                    5.0.0                                                       6.0.1     dotnet     GHSA-447r-wph3-92pm  High      
+System.IdentityModel.Tokens.Jwt        7.0.3                                                       7.1.2     dotnet     GHSA-59j7-ghrg-fj52  Medium    
+System.IdentityModel.Tokens.Jwt        7.0.3.41017013651.bb354ceabed19189245e075abb864f327b6c14ad  
+7.1.2     dotnet     GHSA-59j7-ghrg-fj52  Medium    
+ammo                                   3.0.3                                                                 npm        GHSA-mg85-8mv5-ffjr  High      
+ansi-regex                             3.0.0                                                       3.0.1     npm        GHSA-93q8-gq69-wqmw  High      
+body-parser                            1.20.1                                                      1.20.3    npm        GHSA-qwcr-r2fm-qrc7  High      
+body-parser                            1.20.2                                                      1.20.3    npm        GHSA-qwcr-r2fm-qrc7  High      
+braces                                 2.3.2                                                       3.0.3     npm        GHSA-grv7-fg5c-xmjg  High      
+braces                                 3.0.2                                                       3.0.3     npm        GHSA-grv7-fg5c-xmjg  High      
+debug                                  4.1.1                                                       4.3.1     npm        GHSA-gxpj-cx7g-858c  Low       
+decode-uri-component                   0.2.0                                                       0.2.1     npm        GHSA-w573-4hg7-7wgq  High      
+degenerator                            1.0.4                                                       3.0.1     npm        GHSA-9j49-mfvp-vmhm  High      
+express                                4.18.2                                                      4.19.2    npm        GHSA-rv95-896h-c2vc  Medium    
+express                                4.18.2                                                      4.20.0    npm        GHSA-qw6h-vgh9-j6wx  Medium    
+express-jwt                            5.3.3                                                       6.0.0     npm        GHSA-6g6m-m6h5-w9gf  High      
+fast-xml-parser                        4.2.5                                                       4.4.1     npm        GHSA-mpg4-rc92-vx8v  High      
+follow-redirects                       1.15.3                                                      1.15.4    npm        GHSA-jchw-25xp-jwwc  Medium    
+follow-redirects                       1.15.3                                                      1.15.6    npm        GHSA-cxjh-pqwp-8mfp  Medium    
+hapi                                   17.8.5                                                                npm        GHSA-7hx8-2rxv-66xv  High      
+hoek                                   6.0.1                                                                 npm        GHSA-c429-5p7v-vgjp  High      
+hoek                                   6.1.3                                                                 npm        GHSA-c429-5p7v-vgjp  High      
+ip                                     1.1.5                                                                 npm        GHSA-2p57-rm9w-gvfp  High      
+ip                                     1.1.5                                                       1.1.9     npm        GHSA-78xj-cgh5-2h22  Low       
+ip                                     2.0.0                                                                 npm        GHSA-2p57-rm9w-gvfp  High      
+ip                                     2.0.0                                                       2.0.1     npm        GHSA-78xj-cgh5-2h22  Low       
+jsonwebtoken                           8.5.1                                                       9.0.0     npm        GHSA-8cf7-32gw-wr33  High      
+jsonwebtoken                           8.5.1                                                       9.0.0     npm        GHSA-qwph-4952-7xr6  Medium    
+jsonwebtoken                           8.5.1                                                       9.0.0     npm        GHSA-hjrf-2m68-5959  Medium    
+lodash.set                             4.3.2                                                                 npm        GHSA-p6mc-m468-83gw  High      
+micromatch                             3.1.10                                                      4.0.8     npm        GHSA-952p-6rrq-rcjv  Medium    
+micromatch                             4.0.5                                                       4.0.8     npm        GHSA-952p-6rrq-rcjv  Medium    
+netmask                                1.0.6                                                       1.1.0     npm        GHSA-4c7m-wxvm-r7gc  Critical  
+netmask                                1.0.6                                                       2.0.1     npm        GHSA-pch5-whg9-qr2r  Medium    
+node-notifier                          5.4.5                                                       8.0.1     npm        GHSA-5fw9-fq32-wv5p  Medium    
+pac-resolver                           3.0.0                                                       5.0.0     npm        GHSA-9j49-mfvp-vmhm  High      
+path-to-regexp                         0.1.7                                                       0.1.10    npm        GHSA-9wv6-86v2-598j  High      
+path-to-regexp                         1.8.0                                                       1.9.0     npm        GHSA-9wv6-86v2-598j  High      
+qs                                     6.5.2                                                       6.5.3     npm        GHSA-hrpp-h998-j3pp  High      
+request                                2.88.2                                                                npm        GHSA-p8p7-x288-28g6  Medium    
+rollup                                 3.29.4                                                      3.29.5    npm        GHSA-gcx4-mw62-g8wm  High      
+semver                                 5.5.0                                                       5.7.2     npm        GHSA-c2qf-rxjj-qqgw  High      
+semver                                 5.7.1                                                       5.7.2     npm        GHSA-c2qf-rxjj-qqgw  High      
+send                                   0.18.0                                                      0.19.0    npm        GHSA-m6fv-jmcg-4jfg  Medium    
+serve-static                           1.15.0                                                      1.16.0    npm        GHSA-cm22-4g7w-348p  Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24790       Critical  
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-24531       Critical  
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-34158       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-34156       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24791       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24784       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45288       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45285       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45283       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-44487       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-39325       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-39323       High      
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24789       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24787       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45284       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-39326       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-39319       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-39318       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-29409       Medium    
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-34155       Unknown   
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24785       Unknown   
+stdlib                                 go1.20.6                                                              go-module  CVE-2024-24783       Unknown   
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45290       Unknown   
+stdlib                                 go1.20.6                                                              go-module  CVE-2023-45289       Unknown   
+subtext                                6.0.12                                                                npm        GHSA-g64q-3vg8-8f93  High      
+subtext                                6.0.12                                                                npm        GHSA-5854-jvxx-2cg9  High      
+subtext                                6.0.12                                                                npm        GHSA-2mvq-xp48-4c77  High      
+tar                                    6.2.0                                                       6.2.1     npm        GHSA-f5x3-32g6-xq36  Medium    
+tough-cookie                           2.5.0                                                       4.1.3     npm        GHSA-72xf-g2v4-qvf3  Medium    
+vite                                   4.4.7                                                       4.5.2     npm        GHSA-c24v-8rfc-w8vw  High      
+vite                                   4.4.7                                                       4.5.4     npm        GHSA-9cwx-2883-4wfx  Medium    
+vite                                   4.4.7                                                       4.4.12    npm        GHSA-92r3-m2mg-pj97  Medium    
+vite                                   4.4.7                                                       4.5.3     npm        GHSA-8jhw-289h-jh2g  Medium    
+vite                                   4.4.7                                                       4.5.4     npm        GHSA-64vr-g452-qvp3  Medium    
+webpack                                5.88.2                                                      5.94.0    npm        GHSA-4vvj-4cpr-p986  Medium    
+webpack-dev-middleware                 5.3.3                                                       5.3.4     npm        GHSA-wr3j-pwj9-hqq6  High      
+webpack-dev-middleware                 6.1.1                                                       6.1.2     npm        GHSA-wr3j-pwj9-hqq6  High      
+ws                                     5.2.3                                                       5.2.4     npm        GHSA-3h5v-q93c-6h6q  High      
+ws                                     7.5.9                                                       7.5.10    npm        GHSA-3h5v-q93c-6h6q  High      
+ws                                     8.11.0                                                      8.17.1    npm        GHSA-3h5v-q93c-6h6q  High      
+ws                                     8.14.2                                                      8.17.1    npm        GHSA-3h5v-q93c-6h6q  High      
+yargs-parser                           10.1.0                                                      13.1.2    npm        GHSA-p9pc-299p-vxgp  Medium

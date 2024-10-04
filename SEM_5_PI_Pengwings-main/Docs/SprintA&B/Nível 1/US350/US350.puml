@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor FleetManager as GC
+participant FleetUI as GUI
+participant System as S
+
+GUI -> GC : 1: presents graphic interface
+S -> GUI : 1: waits a request
+GC -> GUI : 2: fill form (type,brand,model)
+GUI -> S : 2: sends request (type,brand,model)
+S -> GC : 3: responds with a success message
+GUI -> GC : 3: shows success message
+
+@enduml

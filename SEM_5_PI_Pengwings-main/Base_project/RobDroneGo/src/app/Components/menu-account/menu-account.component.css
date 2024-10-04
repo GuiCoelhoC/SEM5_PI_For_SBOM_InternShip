@@ -1,0 +1,35 @@
+.top_menu {
+    box-shadow: 0px 0px 10px 10px rgba(100, 0.5, 0.5, 0.5);
+    position: relative;
+    top: 15px;
+    left: 20%;
+    width: 60%;
+    word-wrap: break-word;
+    background-color: #DDDDDD;
+    border: 3px solid #DDDDDD;
+    padding: 0px;
+    z-index: 0;
+    border-radius : 10px;
+}
+
+.button-tab {
+    background-color: #BA1A24;
+    border-radius: 15px;
+    border: none;
+    margin: 0px 2px;
+    color: white;
+    padding: 6px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-back {
+    background-color: #2222FF;
+    border-radius: 20px;
+    border: none;
+    margin: 0px 2px;
+    color: white;
+    padding: 6px 5px;
+    text-align: center;
+    text-decoration: none;
+}

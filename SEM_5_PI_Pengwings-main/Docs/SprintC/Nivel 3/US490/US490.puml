@@ -1,0 +1,49 @@
+@startuml
+
+actor TM as "Task Manager"
+participant View as V
+participant Component as C
+participant FrontEndService as FES
+participant AssignmentService as AS
+participant AssignmentRepository as AR
+participant Assignment as A
+
+activate TM
+TM -> V: wants to list assignments
+activate V
+V -> C: listAssignments()
+activate C
+C -> FES: getToken()
+activate FES
+FES -> C: token
+deactivate FES
+C -> FES: listAssignments(token)
+activate FES
+FES -> AS: listAssignments(token)
+activate AS
+AS -> AS: verifyToken(token)
+AS -> AR: getAllAssignmentsAsync()
+activate AR
+AR -> AS: assignments
+deactivate AR
+AS -> FES: assignmentsDto
+deactivate AS
+FES -> C: assignmentsDto
+deactivate FES
+C -> V: display list of assignments
+
+V -> TM: shows list of assignments
+
+TM -> V: requests to sort assignments
+V -> TM: shows sort options (StartPoint, EndPoint, Status, Type, TM, Name)
+TM -> V: select sort option
+V -> C: sortAssignments(sortOption)
+
+C -> C: assignments.sort()
+C -> V: display sorted list of assignments
+deactivate C
+V -> TM: shows sorted list of assignments
+deactivate V
+deactivate TM
+
+@enduml

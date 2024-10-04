@@ -1,0 +1,47 @@
+@startuml
+hide circle
+hide empty members
+
+skinparam padding 1
+
+
+skinparam interface {
+    backgroundColor #0faaff
+}
+
+skinparam component {
+    backgroundColor #0faaff
+}
+
+interface filesystem_API as "**filesystem API**"
+interface FleetAPI as "**API Fleet Management**"
+interface CampusAPI as "**API Campus Management**"
+interface TaskAPI as "**API Task Management**"
+interface CampusM as "**UI Campus Management**"
+interface TaskM as "**UI Task Management**"
+interface FleetM as "**UI Fleet Management**"
+
+[System] as "RobDroneGo" <<component>><<system(C4)>>
+
+component System{
+    portout " " as p1 #0faaff
+    portout " " as p2 #0faaff
+    portout " " as p3 #0faaff
+    portout " " as p4 #0faaff
+    portin " " as p5 #0faaff
+    portin " " as p6 #0faaff
+    portin " " as p7 #0faaff
+
+}
+
+p1 --( filesystem_API
+
+FleetAPI -u- p2
+CampusAPI -u- p3
+TaskAPI -u- p4
+CampusM -- p5
+TaskM -- p6
+FleetM -- p7
+
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+actor "Task Manager" as AM
+participant System
+
+activate AM
+AM -> System: requests to accept/reject assignments
+activate System
+System -> System: get pending assignments
+System -> AM: shows pending assignments
+
+AM -> System: accepts/rejects an assignment
+System -> System: accepts/rejects assignment
+
+System -> AM : shows success message
+
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+
+actor User
+participant View
+participant Component as C
+participant FrontEndService as FES
+participant AuthService as AS
+participant UserController as UC
+participant UserService as US
+participant UserRepository as UR
+participant User as U
+
+activate User
+User -> View : requests to update their profile
+activate View
+View -> C : get user data
+activate C
+C -> AS : get token
+activate AS
+AS -> C : token
+deactivate AS
+C -> FES : getUser(token)
+activate FES
+FES -> UC : getUser(token)
+activate UC
+UC -> US : getByToken(token)
+activate US
+US -> US : decodeJWTEmail(token)
+US -> UR : getByEmail(email)
+activate UR
+UR -> U : query email
+activate U
+U -> UR : user
+deactivate U
+UR -> US : user
+deactivate UR
+US -> UC : userdto
+deactivate US
+UC -> FES : userdto
+deactivate UC
+FES -> C : user
+deactivate FES
+C -> View : display user information
+deactivate C
+View -> User : shows user information
+deactivate View
+User -> View : updated data
+activate View
+View -> C : get user data
+activate C
+C -> FES : updateUser(token, data)
+activate FES
+FES -> UC : updateUser(token, data)
+activate UC
+UC -> US : getByToken(token)
+activate US
+US -> US : decodeJWTEmail(token)
+US -> UR : getByEmail(email)
+activate UR
+UR -> U : query email
+activate U
+U -> UR : user
+deactivate U
+UR -> US : user
+deactivate UR
+US -> U: change user data
+activate U
+deactivate U
+
+US -> UC : userdto
+deactivate US
+UC -> FES : userdto
+deactivate UC
+
+FES -> C : success message
+deactivate FES
+C -> View : success message
+deactivate C
+View -> User : display success message
+
+@enduml

@@ -1,0 +1,17 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateAssignment()"> Create Assignment </button>
+  <button class = "button-tab" (click) = "showListAll()"> List all Assignment </button>
+  <button class = "button-tab" (click) = "showListPending()"> List Pending Assignment </button>
+  <button class = "button-tab" (click) = "showAcceptReject()"> Accept-Reject Assignment </button>
+  <button class = "button-tab" (click) = "showTaskSequence()"> Assignment Sequence </button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+
+<div class = "app-container">
+  <app-create-assignment *ngIf="createAssignmentTab"></app-create-assignment>
+  <app-list-all *ngIf="listAllAssignmentTab"></app-list-all>
+  <app-list-pending *ngIf="listPendingAssignmentTab"></app-list-pending>
+  <app-accept-reject-assignment *ngIf="AcceptRejectedAssignmentTab"></app-accept-reject-assignment>
+  <app-task-sequence *ngIf="TaskSequenceTab"></app-task-sequence>
+</div>

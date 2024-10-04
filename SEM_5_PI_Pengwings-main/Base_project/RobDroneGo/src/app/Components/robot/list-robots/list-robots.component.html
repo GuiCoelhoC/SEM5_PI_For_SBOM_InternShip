@@ -1,0 +1,21 @@
+<body class="list-text">
+<main class="list-robots">
+  <div>
+    <h1> Robots on the database:</h1>
+
+    <div class="card-container" *ngIf="robots && robots.length > 0">
+      <div *ngFor="let robot of robots" class="card">
+        <div class="building-icon" role="robot-icon">
+          <img src="assets/img/robot_icon.png" width="60px" height="60px">
+        </div>
+        <strong> Code: </strong> {{ robot.code }} <br>
+        <strong> Name: </strong> {{ robot.name }} <br>
+        <strong> Serial Number: </strong> {{ robot.serial_number }} <br>
+        <strong> Description: </strong> {{ robot.description }} <br>
+        <strong> Type: </strong> {{ robot.type }} <br>
+        <strong> Active: </strong> {{ robot.active }} <br>
+      </div>
+    </div>
+  </div>
+</main>
+</body>

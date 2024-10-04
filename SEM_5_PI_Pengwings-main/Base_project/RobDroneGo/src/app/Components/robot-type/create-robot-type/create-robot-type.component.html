@@ -1,0 +1,24 @@
+<body class="text-center">
+<form (submit)="createRobotType()">
+  <div class="form-floating">
+    <label for="floatingRobotTypeType">Robot Type type</label>
+    <input type="text" id="floatingRobotTypeType" placeholder="Robot Type type" required>
+
+    <label for="floatingRobotTypeBrand">Robot Type brand</label>
+    <input type="text" id="floatingRobotTypeBrand" placeholder="Robot Type brand" required>
+
+    <label for="floatingRobotTypeModel">Robot Type Model</label>
+    <input type="text" id="floatingRobotTypeModel" placeholder="Robot Type Model" required>
+
+    <div id="taskSelection">
+      <label>Select Tasks: </label>
+      <div *ngFor="let task of tasks; let i = index">
+        <input type="checkbox" id="task{{i}}" (change)="updateSelectedTask(i)">
+        <label for="task{{i}}">{{ task }}</label>
+      </div>
+    </div>
+
+    <button class="submit-button" type="submit"> Create Robot Type </button>
+  </div>
+</form>
+</body>

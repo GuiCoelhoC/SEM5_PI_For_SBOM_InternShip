@@ -1,0 +1,24 @@
+@startuml
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : requests passage creation
+activate UI
+UI -> R : post('/api/passage/create')
+
+activate R
+|||
+R -> R : creates passage with \n input data, saves \n and returns it
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+
+
+@enduml
+

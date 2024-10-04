@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam node{
+    backgroundColor #lightblue
+}
+
+skinparam component{
+    backgroundColor #lightblue
+}
+
+skinparam componentFontStyle<<component>> bold
+
+node "localhost:??" as L {
+  component "Browser" <<component>> as B{
+    component UI <<component>> as "UI"
+  }
+}
+
+node S as "server"{
+    component CM <<component>> as "Campus Management"
+    component "Planning" <<component>> as P
+    component FM <<component>> as "Fleet Management"
+    component TM <<component>> as "Task Management"
+}
+
+L -d- S: http/s
+
+
+
+@enduml

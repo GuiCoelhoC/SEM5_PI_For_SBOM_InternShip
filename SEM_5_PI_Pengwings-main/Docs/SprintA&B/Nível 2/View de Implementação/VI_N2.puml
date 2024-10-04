@@ -1,0 +1,73 @@
+@startuml
+skinparam component {
+    backgroundColor #80f0ff
+}
+
+skinparam interface {
+    backgroundColor #0faaff
+}
+
+hide circle
+hide empty members
+
+skinparam padding 1
+
+    interface CM_API_I as "**Campus management API**"
+    interface FM_API_I as "**Fleet management API**"
+
+    interface CampusM_I as "**UI Campus Management**"
+    interface FleetM_I as "**UI Fleet Management**"
+
+component [RobDroneGo_I] <<component>><<system(C4)>> as "RobDroneGo"{
+    portout " " as p1_I #0faaff
+    port " " as p2_I #0faaff
+    port " " as p3_I #0faaff
+    port " " as p4_I #0faaff
+    port " " as p5_I #0faaff
+
+        interface Planning_API_I as "**Planning API**"
+        interface MD_API_I as "**MD API**"
+
+    component [MD_I] <<component>><<container(C4)>> as "Master Data (MD)"{
+        port " " as pMD1_I #0faaff
+        port " " as pMD2_I #0faaff
+        portout " " as pMD3_I #0faaff
+        port " " as pMD4_I #0faaff
+        port " " as pMD5_I #0faaff
+
+    }
+
+    component [FE] <<component>><<container(C4)>> as "Frontend (UI)"{
+        portin " " as pFE1_I #0faaff
+        portin " " as pFE2_I #0faaff
+        port " " as pFE3_I #0faaff
+    }
+
+
+
+    component [Planning] <<component>><<system(C4)>> as "Planning"{
+        port " " as pp1_I #0faaff
+    }
+
+}
+
+p1_I -u-( filesystem_API
+p2_I -u- CampusM_I
+p3_I -u- FleetM_I
+p4_I -u- CM_API_I
+p5_I -u- FM_API_I
+
+pFE1_I -u- p2_I
+pFE2_I -u- p3_I
+pFE3_I -r-( MD_API_I
+
+pMD1_I -u-- p4_I
+pMD2_I -u-- p5_I
+pMD3_I -u-- p1_I
+pMD4_I -u- MD_API_I
+pMD5_I -u--( Planning_API_I
+
+pp1_I - Planning_API_I
+
+
+@enduml

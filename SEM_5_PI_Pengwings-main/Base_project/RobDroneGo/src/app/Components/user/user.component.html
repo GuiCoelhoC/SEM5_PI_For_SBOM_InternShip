@@ -1,0 +1,8 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateUserTab()"> Create User </button>
+  <button class = "button-back"> Back </button>
+</div>
+
+<div class = "app-container">
+  <app-create-user *ngIf="createUserTab"></app-create-user>
+</div>

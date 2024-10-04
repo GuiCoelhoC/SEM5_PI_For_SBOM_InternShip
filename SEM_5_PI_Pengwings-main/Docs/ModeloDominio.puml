@@ -1,0 +1,194 @@
+@startuml
+!define ENTITY
+!define VALUE_OBJECT
+
+hide methods
+hide empty members
+left to right direction
+hide circle
+
+
+skinparam class {
+    BackgroundColor<<entity>> #D9EAD3
+    BackgroundColor<<valueObject>> #FEF4F4
+    BackgroundColor<<enum>> #b3b7e6
+    BorderColor<<entity>> Black
+    BorderColor<<valueObject>> Black
+    ArrowColor Black
+}
+
+package PUser as "User" {
+    entity "User" <<entity>> <<root>>
+    entity "Email" <<value object>>
+    entity "Password" <<value object>>
+    entity "Nome" <<value object>>
+    "User" "1" --> "1" "Email": tem
+    "User" "1" --> "1" "Password": tem
+    "User" "1" --> "1" "Nome": tem
+
+}
+
+package PGestorCampo as "GestorCampo" {
+  entity "GestorCampo" <<entity>> <<root>>
+}
+
+package PUtilizador as "Utilizador" {
+  entity "Utilizador" <<entity>> <<root>>
+}
+
+package PGestorFrota as "GestorFrota" {
+  entity "GestorFrota" <<entity>> <<root>>
+}
+
+package PAdministrador as "Administrador" {
+  entity "Administrador" <<entity>> <<root>>
+}
+
+package PBuilding as "Building" {
+    entity "Building" <<entity>> <<root>>
+    entity "BuildingID" <<value object>>
+    entity "BuildingCodigo" <<value object>>
+    entity "BuildingNome" <<value object>>
+    entity "BuildingDescricao" <<value object>>
+    entity "BuildingLarguraMax" <<value object>>
+    entity "BuildingComprimentoMax" <<value object>>
+    "Building" "1" --> "1" "BuildingID": tem
+    "Building" "1" --> "1" "BuildingCodigo": tem
+    "Building" "1" --> "1" "BuildingNome": tem
+    "Building" "1" --> "1" "BuildingDescricao": tem
+    "Building" "1" --> "1" "BuildingLarguraMax": tem
+    "Building" "1" --> "1" "BuildingComprimentoMax": tem
+}
+
+package PPiso as "Floor" {
+  entity "Floor" <<entity>>
+  entity "FloorID" <<value object>>
+  entity "PisoNumero" <<value object>>
+  entity "PisoLargura" <<value object>>
+  entity "PisoComprimento" <<value object>>
+  entity "Mapa" <<value object>>
+  entity "CoordenadasMapa" <<value object>>
+  "Floor" "1" --> "1" "FloorID": tem
+  "Floor" "1" --> "1" "PisoNumero": tem
+  "Floor" "1" --> "1" "PisoLargura": tem
+  "Floor" "1" --> "1" "PisoComprimento": tem
+  "Floor" "1" --> "1" "Mapa": tem
+  "Mapa" "1" --> "*" "CoordenadasMapa": tem
+}
+
+package PElevator as "Elevator" {
+  entity "Elevator" <<entity>>
+  entity "ElevatorID" <<value object>>
+  entity "ElevatorCode" <<value object>>
+  entity "ElevatorBrand" <<value object>>
+  entity "ElevatorModel" <<value object>>
+  entity "ElevatorSerialNumber" <<value object>>
+  entity "ElevatorDescription" <<value object>>
+  "Elevator" "1" --> "1" "ElevatorID": tem
+  "Elevator" "1" --> "1" "ElevatorCode": tem
+  "Elevator" "1" --> "1" "ElevatorBrand": tem
+  "Elevator" "1" --> "1" "ElevatorModel": tem
+  "Elevator" "1" --> "1" "ElevatorSerialNumber": tem
+  "Elevator" "1" --> "1" "ElevatorDescription": tem
+}
+
+package PRoom as "Room"{
+  entity "Room" <<entity>>
+  entity "RoomID" <<value object>>
+  entity "RoomNome" <<value object>>
+  entity "RoomDescricao" <<value object>>
+  entity "RoomDimensão" <<value object>>
+  entity "RoomDoor" <<value object>>
+  enum "TipoRoom" <<enum>> {
+    Gabinete
+    RoomAula
+    AnfiTeatro
+    Outro
+  }
+  "Room" "1" --> "1" "RoomID": tem
+  "Room" "1" --> "1" "RoomNome": tem
+  "Room" "1" --> "1" "RoomDescricao": tem
+  "Room" "1" --> "1" "RoomDimensão": tem
+  "Room" "1" --> "1.*" "RoomDoor": tem
+  "Room" "1" --> "1" "TipoRoom": tem
+}
+
+package PPassage as "Passage"{
+  entity "Passage" <<entity>>
+  'entity "PassageID" <<value object>>
+  entity "Code" <<value object>>
+
+  'Passage "1" --> "1" "PassageID": tem
+  Passage "1" --> "1" "Code": tem
+
+}
+
+package PRobo as "Robot" {
+    entity "Robot" <<entity>> <<root>>
+    entity "RobotID" <<value object>>
+    entity "Sensor" <<value object>>
+    entity "TipoSensor" <<value object>>
+    entity "Router" <<value object>>
+    entity "Caminho" <<value object>>
+    entity "Localizacao" <<value object>>
+    entity "RoboCodigo" <<value object>>
+    entity "RoboNome" <<value object>>
+    entity "RoboNumero_serie" <<value object>>
+    entity "RoboDescricao" <<value object>>
+    entity "RoboAtivo" <<value object>>
+    "Robot" "1" --> "1" "RobotID": tem
+    "Robot" "1" --> "1" "Localizacao": tem
+    "Robot" "1" --> "*" "Sensor": tem
+    "Robot" "1" --> "1" "RoboCodigo": tem
+    "Robot" "1" --> "1" "RoboNome": tem
+    "Robot" "1" --> "1" "RoboNumero_serie": tem
+    "Robot" "1" --> "1" "RoboDescricao": tem
+    "Robot" "1" --> "1" "RoboAtivo": tem
+    "Sensor" "*" --> "1" "TipoSensor": pode ser
+    "Robot" "1" --> "*" "Router": tem
+    "Router" "1" --> "1" "Caminho": tem ?
+}
+
+package PTarefa as "Tarefa" {
+    entity "Tarefa" <<entity>> <<root>>
+    entity "TarefaTipo" <<value object>>
+    entity "TarefaMarca" <<value object>>
+    entity "TarefaModelo" <<value object>>
+    entity "EstadoTarefa" <<value object>>
+    entity "Descricao" <<value object>>
+    entity "Prioridade" <<value object>>
+    "Tarefa" "1" --> "1" "TarefaTipo": tem
+    "Tarefa" "1" --> "1" "TarefaMarca": tem
+    "Tarefa" "1" --> "1" "TarefaModelo": tem
+    "Tarefa" "1" --> "1" "EstadoTarefa": tem
+    "Tarefa" "1" --> "1..*" "Descricao": tem
+    "Tarefa" "1" --> "1" "Prioridade": tem
+}
+
+Building "1" ---> "*" Floor: tem
+Building "1" ---> "0..1" Elevator: tem
+
+Elevator "1" ---> "1..*" Floor: tem
+
+Floor "1" ---> "*" Room: tem
+
+Passagem "1" ---> "*" Floor: tem
+Passagem "1" ---> "*" Building: tem
+
+Robot "1" ---> "*" Tarefa: tem
+
+User "1" ---> "*" Administrador: é
+User "1" ---> "*" GestorCampo: é
+User "1" ---> "*" GestorFrota: é
+User "1" ---> "*" Utilizador: é
+
+GestorCampo "1" ---> "*" Building: cria
+GestorCampo "1" ---> "*" Floor: cria
+GestorCampo "1" ---> "*" Room: cria
+GestorCampo "1" ---> "*" Passagem: cria
+GestorCampo "1" ---> "*" Elevator: cria
+
+GestorFrota "1" ---> "*" Robot: cria
+GestorFrota "1" ---> "*" Tarefa: cria
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request list building with min and max floors
+activate UI
+UI -> R : get('/api/floors')
+
+activate R
+|||
+R -> R : finds all buildings \n with floors between the min and the max \n and returns them
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+deactivate UI
+
+@enduml

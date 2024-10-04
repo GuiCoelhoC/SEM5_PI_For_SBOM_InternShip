@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request list building
+activate UI
+UI -> R : get('/api/building')
+
+activate R
+|||
+R -> R : finds all \n buildings and returns them.
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+deactivate UI
+
+@enduml

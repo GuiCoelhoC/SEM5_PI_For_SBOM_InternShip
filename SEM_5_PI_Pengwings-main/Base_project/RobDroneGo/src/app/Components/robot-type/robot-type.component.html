@@ -1,0 +1,8 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateRobotTypeTab()"> Create Robot Type </button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+<div class = "app-container">
+  <app-create-robot-type *ngIf="createRobotTypeTab"></app-create-robot-type>
+</div>

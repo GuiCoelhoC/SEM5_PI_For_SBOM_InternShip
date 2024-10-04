@@ -1,0 +1,113 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant CreatingDTO as CDTO
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : get('/api/elevator/listByBuilding)
+
+activate R
+
+R -> C : get
+
+activate C
+
+C -> CDTO : receives body info
+
+activate CDTO
+
+CDTO -> M : ToDTO
+
+activate M
+
+M -> DTO : new DTO
+
+activate DTO
+
+DTO -> M : return DTO
+
+deactivate DTO
+
+M -> CDTO : return DTO
+
+deactivate M
+
+CDTO -> C : return DTO
+
+deactivate CDTO
+
+C -> S : function call to service
+
+activate S
+
+S -> Repo : findByBuildingId(building)
+
+activate Repo
+alt building does not exist
+
+
+Repo -> S : return null
+
+C -> R : status 404
+R -> UI : error message
+
+else building != null
+
+loop each elevator in building
+
+Repo -> M : toDomain
+
+
+activate M
+
+M -> D : create()
+
+activate D
+
+D -> M : return Object
+
+deactivate D
+
+
+M -> Repo : return Object
+
+deactivate M
+
+end loop
+
+Repo -> S : return list of Objects
+
+deactivate Repo
+
+S -> M : toDTO(list)
+
+activate M
+
+deactivate M
+
+deactivate Repo
+
+S-> C : return list of DTO
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+end alt
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as MD
+
+U -> UI : requests to update an elevator
+activate UI
+UI -> MD : patch('/api/elevator/update')
+
+activate MD
+|||
+MD -> MD : updates elevator, \n saves and returns it
+|||
+MD -> UI : response status
+deactivate MD
+
+UI -> U : answers with operation success
+@enduml

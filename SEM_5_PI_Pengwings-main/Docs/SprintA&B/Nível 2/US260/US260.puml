@@ -1,0 +1,23 @@
+@startuml
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : requests list passages between buildings
+activate UI
+UI -> R : get('/api/passagens/listPassagesBetweenBuildings')
+
+activate R
+|||
+R -> R : Encontra todas as passagens \n entre os buildings dados
+|||
+R -> UI : status da resposta
+deactivate R
+|||
+UI -> U : shows list of passages between buildings
+
+
+@enduml

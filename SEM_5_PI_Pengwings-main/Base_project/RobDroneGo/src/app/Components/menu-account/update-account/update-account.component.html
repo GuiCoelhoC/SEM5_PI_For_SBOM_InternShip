@@ -1,0 +1,50 @@
+<body class="text-center">
+    <div class="label">
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" placeholder="First Name" value={{User.firstName}} >
+    </div>
+    <div class="label">
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" placeholder="Last Name" value={{User.lastName}} >
+    </div>
+
+    <div class="label">
+        <label for="Email">Email</label>
+        <input type="text" id="Email" placeholder="Email" value={{User.email}} >
+    </div>
+
+    <div class="label">
+        <label for="PhoneNumber">Phone Number</label>
+        <input type="text" id="PhoneNumber" placeholder="Phone Number" value={{User.phoneNumber}} >
+    </div>
+
+    <select id="Role" name="role" >
+        <option value="{{User.role}}" disabled style="color: #ffffff;">Role</option>
+        <option value="Administrator">Administrator</option>
+        <option value="Fleet Manager">Fleet Manager</option>
+        <option value="Campus Manager">Campus Manager</option>
+        <option value="Task Manager">Task Manager</option>
+    </select>
+
+
+    <div class="label">
+        <label for="OldPassword">Old Password (Required for changing to a new password) </label>
+        <input type="password" id="OldPassword" placeholder="Old Password" style="-webkit-text-security: square;">
+    </div>
+
+    <div class="label">
+        <label for="Password">New Password</label>
+        <input type="password" id="Password" placeholder="Password" style="-webkit-text-security: square;">
+    </div>
+
+    <div class="label">
+        <label for="ConfirmPassword">Confirm New Password</label>
+        <input type="password" id="ConfirmPassword" placeholder="Confirm Password" style="-webkit-text-security: square;">
+    </div>
+
+    <button type="submit" class="button" (click)="UpdateUser()">Submit</button>
+
+    <div *ngIf="message">
+        <p>{{ message }}</p>
+    </div>
+</body>

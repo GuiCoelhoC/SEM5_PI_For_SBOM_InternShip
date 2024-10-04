@@ -1,0 +1,15 @@
+<div class="container">
+    <p>Deleting your account will inactivate your account and remove all your information from the system.</p>
+    <p>Are you sure you want to delete your account?</p>
+
+    <div *ngIf="message">
+        <p>{{ message }}</p>
+    </div>
+    
+    <div class="label">
+        <label for="Password"> Confirm your password </label>
+        <input type="text" id="Password" placeholder="Confirm Password">
+    </div>
+
+    <button type ="submit" class="button" (click)="DeleteUser()">DELETE</button>
+</div>

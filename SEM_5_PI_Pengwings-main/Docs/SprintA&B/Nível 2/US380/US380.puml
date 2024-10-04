@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor FleetManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : requests list of robots
+activate UI
+UI -> R : get('/api/robot/list')
+
+activate R
+|||
+R -> R : gets list of robots, \n and returns it
+|||
+R -> UI : response status
+UI -> U : shows list of robots
+deactivate R
+
+@enduml

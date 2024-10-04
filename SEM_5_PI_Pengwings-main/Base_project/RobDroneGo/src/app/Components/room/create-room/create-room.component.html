@@ -1,0 +1,50 @@
+<body class="text-center">
+            <div class="form-select">
+                <label for="buildingSelected">Building Code</label>
+                <select id="buildingSelected" [(ngModel)]="buildingSelected" (change)="onSelectBuilding()">
+                    <option *ngFor = "let building of buildings" [ngValue]="building">{{building.code}}</option>
+                </select>
+                <div class="form-building">
+                    <form *ngIf="buildingSelected" (ngValue)="buildingSelected">
+                        <h2>Building Selected</h2>
+                        <div><strong>Code </strong> = {{buildingSelected.code}}</div>
+                        <div><strong>Name </strong> = {{buildingSelected.name}} </div>
+                        <div><strong>Description </strong> = {{buildingSelected.description}} </div>
+                        <div><strong>Max Width </strong> = {{buildingSelected.widthMax}} </div>
+                        <div><strong>Max Length </strong> = {{buildingSelected.lengthMax}} </div>
+                    </form>
+                </div>
+    
+                <label for="floorSelect">Floor Number</label>
+                <select id = "floorSelect" [(ngModel)] = "floorSelected">
+                    <option *ngFor = "let floor of floors" [ngValue]="floor">{{floor.floorNumber}}</option>
+                </select>
+
+                <div class="form-building">
+                    <form *ngIf="floorSelected" (ngValue)="floorSelected">
+                        <h2>Floor Selected</h2>
+                        <div><strong>Floor Number </strong> = {{floorSelected.floorNumber}}</div>
+                        <div><strong>Description </strong> = {{floorSelected.description}} </div>
+                        <div><strong>Width </strong> = {{floorSelected.width}} </div>
+                        <div><strong>Length </strong> = {{floorSelected.length}} </div>
+                    </form>
+                </div>
+    
+
+                <label for="roomName">Room Name</label>
+                <input type="text" id="roomName" name="roomName" placeholder="Room Name" required>
+
+                <label for="roomDescription">Room Description</label>
+                <input type="text" id="roomDescription" name="roomDescription" placeholder="Room Description" required>
+
+                <label for="roomType">Room Type</label>
+                <select id="roomType" [(ngModel)] = "roomTypeSelected">
+                    <option value="classroom">Classroom</option>
+                    <option value="office">Office</option>
+                    <option value="lab">Lab</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="createRoom()">Create Room</button>
+            </div>
+</body>

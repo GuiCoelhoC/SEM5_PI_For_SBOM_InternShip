@@ -1,0 +1,29 @@
+<body class="text-center">
+<main class="min-max-building">
+  <div>
+    <div class="form-floating">
+      <label for="floatingMin">Min</label>
+      <input type="number" class="form-control" id="floatingMin" placeholder="Min" required>
+    </div>
+    <div class="form-floating">
+      <label for="floatingMax">Max</label>
+      <input type="number" class="form-control" id="floatingMax" placeholder="Max" required>
+    </div>
+
+    <button (click)="onSelectedMinMaxBuilding()">List Buildings</button>
+
+    <h2>Available Buildings in the range</h2>
+    <div class="card-container" *ngIf="buildingList && buildingList.length > 0">
+      <div *ngFor="let building of buildingList" class="card">
+        <div class="building-icon" role="building-icon">
+          <img src="assets/img/building-icon.png" width="60px" height="60px">
+        </div>
+        <strong>Name:</strong> {{ building.name }} <br>
+        <strong>Code:</strong> {{ building.code }} <br>
+        <strong>MaxDimensionX:</strong> {{ building.widthMax }} <br>
+        <strong>MaxDimensionY:</strong> {{ building.lengthMax }} <br>
+        <strong>Description:</strong> {{ building.description }} <br>
+      </div>
+    </div>
+  </div>
+</main>

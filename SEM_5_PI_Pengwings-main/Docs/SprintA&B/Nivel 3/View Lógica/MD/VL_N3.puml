@@ -1,0 +1,93 @@
+@startuml
+hide circle
+hide empty members
+
+skinparam padding 1
+
+
+skinparam interface {
+    backgroundColor #0faaff
+}
+
+skinparam component {
+    backgroundColor #0faaff
+}
+
+interface MDR_API as "**MD API**"
+interface Mongo_API as "**SGBD API**"
+interface filesystem_API as "**filesystem API**"
+
+component MDR <<container (c4)>> as "MD "{
+    port p1 as " " #0faaff
+    port p2 as " " #0faaff
+    port p3 as " " #0faaff
+
+    component DTO <<component>> as "**DTO**"
+    component DM <<component>> as "**Data Model**"
+    interface R_API as "**Repository API**"
+    interface C_API as "**Controller** \n **API**"
+    interface DM_API as "**Data Model** \n **API**"
+    interface P_API as "**Persistence** \n **API**"
+    interface fD_API as "**filesystem driver** \n **API**"
+    interface gsx_API as "**gsx Repo API**"
+
+    interface S_API as "**App Service** \n **API**"
+    interface DTO_API as "**DTO** \n **API**"
+    interface M_API as "**Model API**"
+
+
+        folder EB as "Enterprise Business Rules" #a0aafa {
+            component Domain <<component>> as "**Domain Model**"
+
+        }
+
+        folder AB as "Application Business Rules" #FFd000 {
+            component AppService <<component>> as "**Application Service**"
+        }
+
+        folder IAL as "Interface Adapters Layers" #00A36C {
+            component C <<component>> as "**Controller**"
+            component Repository <<component>> as "**Repository**"
+            component gsxRepo <<component>> as "**gsx Repository**"
+        }
+
+        folder FDL as "Frameworks & Drivers Layers" #FFa000 {
+            component Routing <<component>> as "**Routing**"
+            component P <<component>> as "**Persistence**"
+            component FD <<component>> as "**filesystem Driver**"
+
+            FD -[hidden]l- P
+            P -[hidden]l- Routing
+        }
+
+FDL -[hidden]- p1
+MDR_API -d- p1
+p1 -d- Routing
+Routing -d-( C_API
+C_API -d- C
+C -d-( DTO_API
+DTO_API -l- DTO
+C -d-( S_API
+S_API -d- AppService
+DTO_API )-d- AppService
+AppService -d-( M_API
+Mongo_API )-d- p2
+p2 -d- P
+P -d- P_API
+P -d-( DM_API
+DM -l- DM_API
+DM_API )-d- Repository
+P_API )-d- Repository
+Repository -d- R_API
+Repository -d-( M_API
+R_API )-- AppService
+filesystem_API )-d- p3
+p3 -d- FD
+FD -d- fD_API
+fD_API )-d- gsxRepo
+gsxRepo -d- gsx_API
+AppService -r-( gsx_API
+M_API -d- Domain
+}
+
+@enduml

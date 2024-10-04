@@ -1,0 +1,79 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : get('/api/robo/listAll)
+
+activate R
+
+R -> C : get
+
+activate C
+
+C -> S : function call to service
+
+activate S
+
+S -> Repo : listAllRobos()
+
+activate Repo
+
+
+loop for each robo in repository
+
+Repo -> M : toDomain
+
+
+activate M
+
+M -> D : create()
+
+activate D
+
+D -> M : return Object
+
+deactivate D
+
+
+M -> Repo : return Object
+
+deactivate M
+
+end loop
+
+Repo -> S : return  list of Objects
+
+deactivate Repo
+
+S -> M : toDTO(list)
+
+activate M
+
+deactivate M
+
+deactivate Repo
+
+S-> C : return list of DTO
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+
+@enduml

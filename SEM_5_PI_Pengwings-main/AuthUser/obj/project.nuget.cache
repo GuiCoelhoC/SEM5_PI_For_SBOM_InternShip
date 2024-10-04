@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "dGdG7DW7ya7o0Dib6T1W4uAA9gPVhrXki7eAOfQR7GxhrQ2XhdjWukyCiO6nXy8SraXN/gZBOHrt9Dwfo2E2kA==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\Parra\\Documents\\GitHub\\SEM_5_PI_Pengwings\\AuthUser\\AuthUser.sqlproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Parra\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\Parra\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net46\\1.0.0\\microsoft.netframework.referenceassemblies.net46.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,41 @@
+<body class="text-center">
+<div class="form-floating">
+
+  <label for="startPointSelected">Start Point</label>
+  <select id="startPointSelected" [(ngModel)]="startPointSelected">
+    <option *ngFor = "let room of rooms" [ngValue]="room">{{room.name}}</option>
+  </select>
+
+  <div class = "form-task">
+    <form *ngIf = "startPointSelected" (ngValue)="startPointSelected">
+      <div><strong>Building </strong> = {{startPointSelected.building}}</div>
+      <div><strong>Building </strong> = {{startPointSelected.floor}}</div>
+      <div><strong>Name </strong> = {{startPointSelected.name}} </div>
+      <div><strong>Description </strong> = {{startPointSelected.description}} </div>
+      <div><strong>Room Type </strong> = {{startPointSelected.roomtype}} </div>
+    </form>
+  </div>
+
+  <label for="endPointSelected">End Point</label>
+  <select id="endPointSelected" [(ngModel)]="endPointSelected">
+    <option *ngFor = "let room of rooms" [ngValue]="room">{{room.name}}</option>
+  </select>
+
+  <div class = "form-task">
+    <form *ngIf = "endPointSelected" (ngValue)="endPointSelected">
+      <div><strong>Building </strong> = {{endPointSelected.building}}</div>
+      <div><strong>Building </strong> = {{endPointSelected.floor}}</div>
+      <div><strong>Name </strong> = {{endPointSelected.name}} </div>
+      <div><strong>Description </strong> = {{endPointSelected.description}} </div>
+      <div><strong>Max Width </strong> = {{endPointSelected.roomtype}} </div>
+    </form>
+  </div>
+
+  <label for="typeSelected">Building Code</label>
+  <select id="typeSelected" [(ngModel)]="typeSelected">
+    <option *ngFor = "let type of types" [ngValue]="type">{{type}}</option>
+  </select>
+
+  <button class="submit-button" type="submit" (click)="createAssignment()"> Create Assignment </button>
+</div>
+</body>

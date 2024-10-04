@@ -1,0 +1,22 @@
+@startuml
+
+actor User
+participant FrontEnd as FE
+participant MD as MD
+
+activate User
+User -> FE: want to request an assignment
+activate FE
+FE -> User: show form to request an assignment
+User -> FE: fill in form
+FE -> FE: token = getToken()
+FE -> MD: createAssignment(assignment, token)
+activate MD
+MD -> MD: validate token
+MD -> MD: create assignment
+MD -> FE: return assignment
+deactivate MD
+FE -> User: show success message
+deactivate FE
+
+@enduml

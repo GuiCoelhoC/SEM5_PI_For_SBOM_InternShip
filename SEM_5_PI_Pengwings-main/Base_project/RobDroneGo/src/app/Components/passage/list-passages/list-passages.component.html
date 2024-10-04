@@ -1,0 +1,26 @@
+<body class="list-text">
+<main class="list-passages">
+  <div>
+    <div>
+      <label for = "selectedBuilding">Select Building 1 </label>
+      <select id = "selectedBuilding" [(ngModel)]=" selectedBuilding" (change)="onSelectedBuildings()">
+        <option *ngFor = "let building of buildingList" [ngValue]="building">{{building.code}}</option>
+      </select>
+      <label for = "selectedBuilding2"> Select Building 2</label>
+      <select id = "selectedBuilding2" [(ngModel)]=" selectedBuilding2" (change)="onSelectedBuildings()">
+        <option *ngFor = "let building of buildingList" [ngValue]="building">{{building.code}}</option>
+      </select>
+    </div>
+    <h2>Existing passages</h2>
+    <div class="card-container" *ngIf="passageList && passageList.length > 0">
+      <div *ngFor="let passage of passageList" class="card">
+        <strong>Code:</strong> {{passage.code}}<br>
+        <strong>Floor 1:</strong> {{passage.floor1Id}}<br>
+        <strong>Floor 2:</strong> {{passage.floor2Id}}<br>
+        <strong>Building 1:</strong> {{passage.building1Id}}<br>
+        <strong>Building 2:</strong> {{passage.building2Id}}<br>
+      </div>
+    </div>
+  </div>
+</main>
+</body>

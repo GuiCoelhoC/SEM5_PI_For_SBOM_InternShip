@@ -1,0 +1,32 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+# dependencies
+
+# misc
+.DS_Store
+.env*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+build
+
+Base_project/NetEnd/DroneAPI/bin/Debug/net7.0/DroneAPI.dll
+Base_project/NetEnd/DroneAPI/bin/Debug/net7.0/DroneAPI.exe
+Base_project/NetEnd/DroneAPI/bin/Debug/net7.0/DroneAPI.pdb
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/apphost.exe
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.AssemblyInfoInputs.cache
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.assets.cache
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.csproj.AssemblyReference.cache
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.csproj.CoreCompileInputs.cache
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.csproj.FileListAbsolute.txt
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.dll
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.GeneratedMSBuildEditorConfig.editorconfig
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.genruntimeconfig.cache
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/DroneAPI.pdb
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/ref/DroneAPI.dll
+Base_project/NetEnd/DroneAPI/obj/Debug/net7.0/refint/DroneAPI.dll
+Base_project/NetEnd/DroneAPI/obj/DroneAPI.csproj.nuget.dgspec.json
+Base_project/NetEnd/DroneAPI/obj/DroneAPI.csproj.nuget.g.props
+Base_project/NetEnd/DroneAPI/obj/project.assets.json
+Base_project/NetEnd/DroneAPI/obj/project.nuget.cache

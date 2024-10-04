@@ -1,0 +1,27 @@
+@startuml
+
+actor User
+participant FrontEnd as FE
+participant MD as MD
+
+activate User
+User -> FE: want to delete their account
+activate FE
+FE -> User: ask for confirmation with password
+deactivate FE
+User -> FE: password
+activate FE
+FE -> FE: token = getToken()
+FE -> MD: deleteUser(token, password)
+activate MD
+MD -> MD: check password
+alt password correct
+    MD -> MD: make user inactive
+    MD -> FE: success message
+else password incorrect
+    MD -> FE: error message
+end
+deactivate MD
+FE -> User: show message
+
+@enduml

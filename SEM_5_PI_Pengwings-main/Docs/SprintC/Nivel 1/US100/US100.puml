@@ -1,0 +1,11 @@
+@startuml
+actor User
+participant System
+
+activate User
+User->System: updates profile
+activate System
+System->System: update profile
+System->User: message: profile updated
+deactivate System
+@enduml

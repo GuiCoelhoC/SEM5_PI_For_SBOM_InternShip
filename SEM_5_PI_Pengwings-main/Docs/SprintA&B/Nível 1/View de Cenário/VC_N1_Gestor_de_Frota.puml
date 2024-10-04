@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+:Gestor de Frota: as GF
+
+
+GF --> (Como gestor de frota pretendo adicionar um novo tipo de robot indicando a sua designação e que tipos de tarefas pode executar da lista prédefinida de tarefas)
+GF --> (Como gestor de frota pretendo adicionar um novo robot à frota indicando o seu tipo, designação, etc.)
+GF --> (Como gestor de frota pretendo inibir um robot)
+GF --> (Como gestor de frota pretendo consultar todos os robots da frota)
+
+
+
+
+
+@enduml

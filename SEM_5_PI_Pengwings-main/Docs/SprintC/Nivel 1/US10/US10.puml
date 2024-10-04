@@ -1,0 +1,19 @@
+@startuml
+
+actor Admin as Admin
+
+participant System as System
+
+activate Admin
+Admin -> System: requests to add a new user
+activate System
+System -> Admin: requests to enter user details
+deactivate System
+
+Admin -> System: enters user details
+activate System
+System -> System: validate user details
+System -> Admin: user created successfully
+deactivate System
+
+@enduml

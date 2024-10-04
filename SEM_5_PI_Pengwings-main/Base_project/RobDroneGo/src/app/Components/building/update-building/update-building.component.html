@@ -1,0 +1,29 @@
+<body class="text-center">
+        <div class="form-floating">
+            <label for="buildingSelected">Building Code</label>
+            <select id="buildingSelected" [(ngModel)]="buildingSelected">
+                <option *ngFor="let building of buildings" [ngValue]="building">{{building.code}}</option>
+            </select>
+
+            <div class="form-building">
+                <form *ngIf="buildingSelected" (ngValue)="buildingSelected">
+                    <h2>Building Selected</h2>
+                    <div><strong>Code </strong> = {{buildingSelected.code}}</div>
+                    <div><strong>Name </strong> = {{buildingSelected.name}} </div>
+                    <div><strong>Description </strong> = {{buildingSelected.description}} </div>
+                    <div><strong>Max Width </strong> = {{buildingSelected.widthMax}} </div>
+                    <div><strong>Max Length </strong> = {{buildingSelected.lengthMax}} </div>
+                </form>
+            </div>
+
+            <label for="floatingBuildingName">Building Name</label>
+            <input type="text" id="floatingBuildingName" placeholder="Building Name" required>
+            <label for="floatingBuildingDescription">Building Description</label>
+            <input type="text" id="floatingBuildingDescription" placeholder="Building Description" required>
+            <label for="floatingBuildingWidthMax">Max Width</label>
+            <input type="text" id="floatingBuildingWidthMax" placeholder="Width max" required>
+            <label for="floatingBuildingLengthMax">Max Length</label>
+            <input type="text" id="floatingBuildingLengthMax" placeholder="Length max" required>
+            <button class="submit-button" type="submit" (click)="updateBuilding()" > Update Building </button>
+        </div>
+</body>

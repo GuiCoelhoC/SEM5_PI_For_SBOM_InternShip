@@ -1,0 +1,63 @@
+@startuml
+
+actor User
+participant View as V
+participant Component as C
+participant FrontEndService as FES
+participant UserController as UC
+participant UserService as US
+participant UserRepository as UR
+participant User as U
+
+activate User
+User -> V: requests to delete account
+activate V
+V -> User: requests confirmation of deletion
+deactivate V
+User -> V: confirm + password
+activate V
+V -> C: delete(token, password)
+activate C
+C -> FES: delete(token, password)
+activate FES
+FES -> UC: delete(token, password)
+activate UC
+UC -> US: confirmPassword(token, password)
+activate US
+US -> US: decodeToken(token)
+US -> UR: getUserByEmail(email)
+activate UR
+UR -> US: user
+deactivate UR
+US -> US: checkPassword(password, user.password)
+US -> UC: true
+deactivate US
+UC -> US: deleteUser(token)
+activate US
+US -> US: decodeToken(token)
+US -> UR: getUserByEmail(email)
+activate UR
+UR -> US: user
+deactivate UR
+US -> U: setInactive()
+activate U
+U -> U: active = false
+
+US -> UC: success
+deactivate U
+deactivate US
+UC -> FES: success
+deactivate UC
+FES -> C: success
+deactivate FES
+C -> V: display success message
+V -> User: shows success message
+
+C -> V: logout 
+deactivate C
+V -> User: logout
+deactivate V
+deactivate User
+
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+actor User
+participant FrontEnd as FE
+participant MD as MD
+
+activate User
+User -> FE: want to copy their information
+activate FE
+FE -> MD: getUser(token)
+activate MD
+MD -> FE: return user data
+deactivate MD
+FE -> User : show user data
+deactivate FE
+deactivate User
+
+@enduml

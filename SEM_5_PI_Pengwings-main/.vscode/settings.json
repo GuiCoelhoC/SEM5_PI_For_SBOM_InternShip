@@ -1,0 +1,6 @@
+{
+    "livePreview.defaultPreviewPath": "/Base_project/my-first-angular-app/src/app/mainpage.html",
+    "dataworkspace.excludedProjects": [
+        "Test/Test.sqlproj"
+    ]
+}

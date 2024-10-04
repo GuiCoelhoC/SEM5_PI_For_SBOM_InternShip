@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam folder {
+    backgroundColor #80f0ff
+}
+
+skinparam component {
+    backgroundColor #80f0ff
+}
+
+component MasterData as "Master Data"{
+
+    folder Infrastructure as "Infrastructure"{
+        component Routes
+        component Persistence
+    }
+    folder InterfaceAdapters as "Interface Adapters"{
+        component Controllers
+        component Repositories
+    }
+    folder ASUSC as "Application Services/Use Cases Services"{
+        component AppServices
+    }
+    folder ECD as "Entities/Core/Domain"{
+        component Aggregates
+        component VO as "Value Objects"
+        component Services
+    }
+
+
+    Routes -down.-> Controllers
+    Persistence <-down.- Repositories
+    Controllers -down.-> AppServices
+    Repositories -down.-|> AppServices
+    AppServices -down.-> Aggregates
+    AppServices -down.-> Services
+    AppServices -down.-> VO
+
+}
+
+@enduml

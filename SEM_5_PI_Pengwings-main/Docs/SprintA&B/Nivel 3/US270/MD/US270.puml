@@ -1,0 +1,89 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant CreatingDTO as CDTO
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R :  post('/api/elevator/create')
+
+activate R
+
+R -> C : post
+
+activate C
+
+C -> CDTO : receives body info
+
+activate CDTO
+
+CDTO -> M : ToDTO
+
+activate M
+
+M -> DTO : new DTO
+
+activate DTO
+
+DTO -> M : return DTO
+
+deactivate DTO
+
+M -> CDTO : return DTO
+
+deactivate M
+
+CDTO -> C : return DTO
+
+deactivate CDTO
+
+C -> S : function call to Service
+
+activate S
+
+S -> M : toDomain
+
+activate M
+
+M -> D : create Domain Object
+
+activate D
+
+D -> M : return Object
+
+deactivate D
+
+M -> S : return Object
+
+deactivate M
+
+S -> Repo : save elevator
+
+activate Repo
+
+Repo -> S : return elevatorDTO
+
+deactivate Repo
+
+S-> C : return DTO
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+
+@enduml

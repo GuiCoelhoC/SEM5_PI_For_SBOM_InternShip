@@ -1,0 +1,10 @@
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\bin\Debug\AuthUser.dacpac
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\bin\Debug\AuthUser.dll
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\bin\Debug\AuthUser.pdb
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\AuthUser.sqlproj.AssemblyReference.cache
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\Model.xml
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\refactor.xml
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\postdeploy.sql
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\predeploy.sql
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\AuthUser.dll
+c:\Users\Parra\Documents\GitHub\SEM_5_PI_Pengwings\AuthUser\obj\Debug\AuthUser.pdb

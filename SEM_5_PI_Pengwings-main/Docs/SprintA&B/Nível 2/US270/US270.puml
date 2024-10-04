@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : requests to create elevator
+activate UI
+UI -> MD : post('/api/elevator/create')
+
+activate MD
+|||
+MD -> MD : creates elevator, \n saves and returns it
+|||
+MD -> UI : response status
+deactivate MD
+
+UI -> U : answers with operation success
+
+@enduml

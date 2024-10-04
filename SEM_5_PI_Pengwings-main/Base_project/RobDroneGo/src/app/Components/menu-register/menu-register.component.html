@@ -1,0 +1,32 @@
+<div class="form-floating">
+    <label for="floatingFirstName">First Name</label>
+    <input type="text" class="form-control" id="floatingFirstName" placeholder="First Name" required>
+
+    <label for="floatingLastName">Last Name</label>
+    <input type="text" class="form-control" id="floatingLastName" placeholder="Last Name" required>
+
+    <label for="floatingEmail">Email</label>
+    <input type="email" class="form-control" id="floatingEmail" placeholder="Email" required>
+
+    <label for="floatingPhone">Phone</label>
+    <input type="text" class="form-control" id="floatingPhone" placeholder="Phone" required>
+
+    <label for="floatingRole">Role</label>
+    <select id="floatingRole" name="role" required>
+        <option value="" disabled style="color: #ffffff;">Select a role</option>
+        <option value="Administrator">Administrator</option>
+        <option value="Fleet Manager">Fleet Manager</option>
+        <option value="Campus Manager">Campus Manager</option>
+        <option value="Task Manager">Task Manager</option>
+    </select>
+
+    <label for="floatingPassword">Password</label>
+    <input type="password" class="form-control" style="-webkit-text-security: square;" id="floatingPassword"
+        placeholder="Password" required>
+
+    <button class="submit-button" type="submit" (click)="SignupUser()"> Register account </button>
+
+    <div class="app-container">
+        <app-consent-form *ngIf="consentFormTab" (consentChange)="onConsentChange($event)"></app-consent-form>
+    </div>
+</div>

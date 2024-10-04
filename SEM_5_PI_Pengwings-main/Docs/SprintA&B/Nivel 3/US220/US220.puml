@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant UI as UI
+participant Route  as R
+participant Controller as C
+participant CreatingDTO as CDTO
+participant Mapper as M
+participant DTO as DTO
+participant Service as S
+participant Domain as D
+participant Repository as Repo
+
+
+activate UI
+
+UI -> R : get('/api/pisos/listpisoscompassagens')
+
+activate R
+
+R -> C : get
+
+activate C
+
+C -> CDTO : receives body info
+
+activate CDTO
+
+CDTO -> M : ToDTO
+
+activate M
+
+M -> DTO : new DTO
+
+activate DTO
+
+DTO -> M : return DTO
+
+deactivate DTO
+
+M -> CDTO : return DTO
+
+deactivate M
+
+CDTO -> C : return DTO
+
+deactivate CDTO
+
+C -> S : chamada do serviço de pisos
+
+activate S
+
+S -> Repo : findAllByBuilding(buildingId)
+
+activate Repo
+alt não foram encontrados pisos
+
+Repo -> S : return null
+
+C -> R : status 404
+R -> UI : error message
+
+else foram encontrados pisos
+
+
+Repo -> M : toDomain
+
+activate M
+
+M -> D : cria objecto de dominio
+
+activate D
+
+D -> M : return objecto
+
+deactivate D
+
+M -> Repo : return objecto
+
+deactivate M
+
+Repo -> S : return lista de objectos
+
+deactivate Repo
+
+S -> M : toDTO(lista)
+
+activate M
+deactivate M
+
+S-> C : return list de dtos
+
+deactivate S
+
+C -> R : status 201
+
+deactivate C
+
+R -> UI : success message
+end alt
+
+@enduml

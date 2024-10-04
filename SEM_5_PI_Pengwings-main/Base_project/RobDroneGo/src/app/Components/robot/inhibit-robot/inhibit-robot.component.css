@@ -1,0 +1,42 @@
+.text-center {
+  box-shadow: 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);
+  position: relative;
+  top: 200px;
+  left: 25%;
+  width: 50%;
+  margin: 0;
+  word-wrap: break-word;
+  background-color: #DDDDDD;
+  border: 3px solid #DDDDDD;
+  padding: 0px;
+  z-index: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+.form-floating {
+  display: grid;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-robot {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 3px solid #999999;
+  line-break: anywhere;
+  width: 100%;
+  word-break: keep-all;
+}
+
+.submit-button {
+  position: relative;
+  background-color: #A1A1A1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px;
+}

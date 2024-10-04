@@ -1,0 +1,21 @@
+<body class="text-center">
+  <div class="form-floating">
+    <label for="robotSelected">Robot Type</label>
+    <select id="robotSelected" [(ngModel)]="robotSelected">
+      <option *ngFor="let robot of robots" [ngValue]="robot">{{robot.code}}</option>
+    </select>
+
+    <div class = "form-robotType">
+      <form *ngIf = "robotSelected" (ngValue)="robotSelected">
+        <div><strong>Code </strong> = {{robotSelected.code}}</div>
+        <div><strong>Name </strong> = {{robotSelected.name}} </div>
+        <div><strong>Serial Number </strong> = {{robotSelected.serial_number}} </div>
+        <div><strong>Description </strong> = {{robotSelected.description}} </div>
+        <div><strong>Type </strong> = {{robotSelected.type}} </div>
+        <div><strong>Active </strong> = {{robotSelected.active}} </div>
+      </form>
+    </div>
+
+    <button class="submit-button" type="submit" (click)="inhibitRobot()"> Inhibit Robot </button>
+  </div>
+</body>

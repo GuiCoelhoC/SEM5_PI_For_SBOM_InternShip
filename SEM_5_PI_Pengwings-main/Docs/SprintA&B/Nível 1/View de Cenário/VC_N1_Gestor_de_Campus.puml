@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+:Gestor de Campus: as GC
+
+
+GC --> (Criar edifício)
+GC --> (Editar edifício)
+GC --> (Listar todos os edifícios)
+GC --> (Listar edifícios com min e max de pisos)
+GC --> (Criar piso de edifício)
+GC --> (Editar informação de piso de edifício)
+GC --> (Listar todos os pisos de um edifício)
+GC --> (Listar pisos de edifício com passagem para outros edifícios)
+GC --> (Carregar mapa de piso)
+GC --> (Criar passagem entre edifícios)
+GC --> (Editar passagem entre edifícios)
+GC --> (Listar passagens entre 2 edifícios)
+GC --> (Criar elevador em edifício)
+GC --> (Editar elevador em edifício)
+GC --> (Listar elevadores em edifício)
+GC --> (Criar sala de piso de edifício)
+
+
+
+@enduml

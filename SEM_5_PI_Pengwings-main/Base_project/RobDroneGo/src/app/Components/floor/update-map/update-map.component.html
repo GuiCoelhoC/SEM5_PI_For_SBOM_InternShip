@@ -1,0 +1,17 @@
+<body class="text-center">
+    <form (submit)="updateMap()">
+        <div class="form-floating">
+            <label for="buildingSelected">Building Code</label>
+            <select id="buildingSelected" [(ngModel)]="buildingSelected" (change)="onSelectBuilding()">
+                <option *ngFor="let building of buildings" [ngValue]="building">{{building.code}}</option>
+            </select>
+
+            <label for="floorSelect">Floor Number</label>
+            <select id="floorSelect" [(ngModel)]="floorSelected">
+                <option *ngFor="let floor of floors" [ngValue]="floor">{{floor.floorNumber}}</option>
+            </select>
+
+            <button class="submit-button" type="submit"> Update Floor </button>
+        </div>
+    </form>
+</body>

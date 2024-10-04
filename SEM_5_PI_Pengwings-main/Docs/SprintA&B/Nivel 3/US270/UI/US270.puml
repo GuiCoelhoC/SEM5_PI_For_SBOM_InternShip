@@ -1,0 +1,93 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CM as "Campus Manager"
+participant View  as V
+participant Controller as C
+participant Service as S
+participant HTTPDriver as H
+
+
+activate CM
+
+CM -> V :  selects elevator creation option
+
+activate V
+
+V -> CM : shows elevator creation menu
+
+CM -> V : selects building
+
+V -> C : onSelectedBuilding()
+
+activate C
+
+C -> S : function call to Service
+
+activate S
+
+S -> H : get('/api/floor?building=')
+
+activate H
+
+H -> : sends request to API
+
+H -> S: return list of Floor
+
+deactivate H
+
+S -> C : return list of Floor
+
+deactivate S
+
+C -> V : return list of Floor
+
+V -> CM : updates list of available floors
+loop everytime a floor is selected
+
+CM -> V : selects a floor
+
+V -> C : updateSelectedFloors()
+
+C -> S : function call to Service
+
+activate S
+
+S -> C : return new list of Floor
+
+deactivate S
+
+C -> V : return new list of Floor
+
+end loop
+
+CM -> V : inputs brand, model, serial number and description
+V -> C : receives body information
+
+C -> S : function call to Service
+
+activate S
+
+S -> H : post('/api/elevator')
+
+activate H
+
+H -> : sends request to API
+
+H -> S: status 200
+
+deactivate H
+
+S -> C : status 200
+
+deactivate S
+
+C -> V : status 200
+
+deactivate C
+
+V -> CM : success message
+
+@enduml

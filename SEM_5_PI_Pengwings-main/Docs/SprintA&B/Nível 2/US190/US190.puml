@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as U
+participant UI as UI
+participant MD  as R
+
+U -> UI : request create floor
+activate UI
+UI -> R : post('/api/floor')
+
+activate R
+|||
+R -> R : creates floors \n with input data, saves \n and returns them
+|||
+R -> UI : response status
+deactivate R
+|||
+UI -> U : operation success
+deactivate UI
+
+@enduml

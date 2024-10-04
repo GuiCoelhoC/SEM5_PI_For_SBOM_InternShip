@@ -1,0 +1,193 @@
+@startuml
+hide circle
+hide empty members
+
+skinparam padding 1
+
+
+skinparam interface {
+    backgroundColor #0faaff
+}
+
+skinparam component {
+    backgroundColor #0faaff
+}
+
+    interface filesystem_API_L as "**filesystem API**"
+
+    interface CM_API_L as "**Campus management API**"
+    interface FM_API_L as "**Fleet management API**"
+    interface Task_API_L as "**Task management API**"
+    interface UM_API_L as "**User management API**"
+
+
+    interface CampusM_L as "**Campus Management UI**"
+    interface TaskM_L as "**Task Management UI**"
+    interface FleetM_L as "**Fleet Management UI**"
+    interface UserM_L as "**User Management UI**"
+
+component [RobDroneGo_L] <<component>><<system(C4)>> as "RobDroneGo"{
+    portout " " as p1_L #0faaff
+    port " " as p2_L #0faaff
+    port " " as p3_L #0faaff
+    port " " as p4_L #0faaff
+    port " " as p5_L #0faaff
+    port " " as p6_L #0faaff
+    port " " as p7_L #0faaff
+    port " " as p8_L #0faaff
+    port " " as p9_L #0faaff
+
+    component [CM_L] <<component>> as "Campus Management"{
+        port " " as pMD1_L #0faaff
+        port " " as pMD2_L #0faaff
+        portout " " as pMD3_L #0faaff
+    }
+
+    component [FM_L] <<component>> as "Fleet Management"{
+        port " " as pFM1_L #0faaff
+        port " " as pFM2_L #0faaff
+        portout " " as pFM3_L #0faaff
+    }
+
+    component [TM_L] <<component>> as "Task Management"{
+        port " " as pTM1_L #0faaff
+        port " " as pTM2_L #0faaff
+        portout " " as pTM3_L #0faaff
+    }
+
+    component [UM_L] <<component>> as "User Management"{
+        port " " as pUM1_L #0faaff
+        port " " as pUM2_L #0faaff
+    }
+
+
+    component [Planning_L] <<component>> as "Planning"{
+        port " " as pp1_L #0faaff
+        port " " as pp2_L #0faaff
+        port " " as pp3_L #0faaff
+    }
+
+}
+
+p1_L --( filesystem_API_L
+CampusM_L -- p2_L
+CM_API_L -- p3_L
+TaskM_L -- p4_L
+Task_API_L -- p5_L
+FleetM_L -- p6_L
+FM_API_L -- p7_L
+
+pMD1_L -- p2_L
+pMD2_L -- p3_L
+
+pTM1_L -- p4_L
+pTM2_L -- p5_L
+
+pFM1_L -- p6_L
+pFM2_L -- p7_L
+
+pUM1_L -- p8_L
+pUM2_L -- p9_L
+
+pp1_L -u- pMD3_L
+pp2_L -u- pTM3_L
+pp3_L -u- pFM3_L
+
+p8_L -u- UM_API_L
+p9_L -u- UserM_L
+
+
+    interface CM_API_I as "**Campus management API**"
+    interface TM_API_I as "**Task management API**"
+    interface UM_API_I as "**User management API**"
+    interface FM_API_I as "**Fleet management API**"
+
+    interface CampusM_I as "**Campus Management UI**"
+    interface TaskM_I as "**Task Management UI**"
+    interface UserM_I as "**User Management UI**"
+    interface FleetM_I as "**Fleet Management UI**"
+
+component [RobDroneGo_I] <<component>><<system(C4)>> as "RobDroneGo"{
+    portout " " as p1_I #0faaff
+    port " " as p2_I #0faaff
+    port " " as p3_I #0faaff
+    port " " as p4_I #0faaff
+    port " " as p5_I #0faaff
+    port " " as p6_I #0faaff
+    port " " as p7_I #0faaff
+    port " " as p8_I #0faaff
+    port " " as p9_I #0faaff
+
+
+    interface Planning_API_I as "**Planning API**"
+    interface MD_API_I as "**MD API**"
+
+    component [MD_I] <<component>><<container(C4)>> as "Master Data (MD)"{
+        port " " as pMD1_I #0faaff
+        port " " as pMD2_I #0faaff
+        portout " " as pMD3_I #0faaff
+        port " " as pMD4_I #0faaff
+        port " " as pMD5_I #0faaff
+        port " " as pMD6_I #0faaff
+        port " " as pMD7_I #0faaff
+
+    }
+
+    component [FE_I] <<component>><<container(C4)>> as "FrontEnd"{
+        portout " " as pFE5_I #0faaff
+        portin " " as pFE2_I #0faaff
+        portin " " as pFE1_I #0faaff
+        portin " " as pFE3_I #0faaff
+        portin " " as pFE4_I #0faaff
+    }
+
+
+
+    component [Planning_I] <<component>><<system(C4)>> as "Planning"{
+        portout " " as pp1_I #0faaff
+    }
+
+}
+
+interface filesystem_API as "**filesystem API**"
+
+p1_I -u-( filesystem_API
+p2_I -u- CampusM_I
+p3_I -u- FleetM_I
+p4_I -u- CM_API_I
+p5_I -u- FM_API_I
+p6_I -u- TM_API_I
+p7_I -u- UM_API_I
+p8_I -u- TaskM_I
+p9_I -u- UserM_I
+
+pFE1_I -u- p2_I
+pFE2_I -u- p3_I
+pFE3_I -u- p8_I
+pFE4_I -u- p9_I
+pFE5_I -d-( MD_API_I
+
+pMD1_I -u-- p4_I
+pMD2_I -u-- p5_I
+pMD3_I -u-- p1_I
+pMD4_I -u- MD_API_I
+pMD5_I -u--( Planning_API_I
+pMD6_I -u-- p7_I
+pMD7_I -u-- p6_I
+
+pp1_I -- Planning_API_I
+
+
+[CM_L] -u.--- [MD_I] : manifest
+[CM_L] -u.--- [FE_I]: manifest
+pTM1_L -u.--- [MD_I] : manifest
+pTM2_L -u.--- [FE_I]: manifest
+pFM1_L -u.--- [MD_I] : manifest
+pFM2_L -u.--- [FE_I]: manifest
+pUM1_L -u.--- [MD_I] : manifest
+pUM2_L -u.--- [FE_I]: manifest
+
+[RobDroneGo_I] -d[hidden]--------- [RobDroneGo_L] : manifest
+
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CampusManager as GC
+participant CampusUI as GUI
+participant System as S
+
+GUI -> GC : presents graphic interface
+GUI <- S :  waits for a request
+GC -> GUI : fills the form (code, floors, brand, model, serial number, description)
+GUI -> S : sends request (code, floors, brand, model, serial number, description)
+
+S -> GUI : response status
+GUI -> GC : answers request with edited elevator
+@enduml

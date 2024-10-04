@@ -1,0 +1,30 @@
+@startuml
+
+actor "Task Manager" as AM
+participant FrontEnd as FE
+participant MD as MD
+
+activate AM
+AM -> FE: want to accept/reject assignments
+activate FE
+FE -> FE: token = getToken()
+FE -> MD: getPendingAssignments(token)
+activate MD
+MD -> MD: validate token
+MD -> MD: assignments = getPendingAssignments()
+MD -> FE: assignments
+deactivate MD
+FE -> User: display pending assignments
+
+User -> FE: accept/reject assignment
+FE -> FE: status = "accept"/"reject"
+FE -> MD: acceptAssignment(token, assignmentId, status)
+activate MD
+MD -> MD: validate token
+MD -> MD: acceptAssignment(assignmentId, status)
+MD -> FE: assignment
+deactivate MD
+FE -> AM: success message
+deactivate FE
+
+@enduml

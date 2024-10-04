@@ -1,0 +1,9 @@
+<div class="centered_menu">
+  <button class="button" (click)="selectLogin()"> Login </button>
+  <button class="button" (click)="selectRegister()"> Register </button>
+
+  <div class="app-container">
+    <app-login *ngIf="loginMenuTab"></app-login>
+    <app-register *ngIf="registerMenuTab"></app-register>
+  </div>
+</div>

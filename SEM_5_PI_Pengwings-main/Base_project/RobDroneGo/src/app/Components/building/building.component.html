@@ -1,0 +1,17 @@
+<div class = "top_menu">
+    <button class = "button-tab" (click) = "showCreateBuildingTab()"> Create Building </button>
+    <button class = "button-tab" (click) = "showListBuildingTab()"> List Buildings </button>
+    <button class = "button-tab" (click) = "showUpdateBuildingTab()"> Update Building </button>
+    <button class = "button-tab" (click) = "showListMinMaxTab()"> List Min Max Building </button>
+    <button class = "button-tab" (click) = "showFindPathTab()"> Find Path </button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+
+<div class = "app-container">
+    <app-building-create *ngIf="createBuildingTab"></app-building-create>
+    <app-building-update *ngIf="updateBuildingTab"></app-building-update>
+    <app-building-list *ngIf="listBuildingTab"></app-building-list>
+    <app-list-min-max-building *ngIf="listMinMaxTab"></app-list-min-max-building>
+    <app-path-finder *ngIf="findPathTab"></app-path-finder>
+</div>

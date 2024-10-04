@@ -1,0 +1,18 @@
+@startuml
+
+autonumber
+
+actor CampusManager as GC
+participant CampusUI as GUI
+participant System as S
+
+GUI -> GC : presents graphic interface
+GUI <- S :  waits for a request
+GC -> GUI : selects building1 and building2
+GUI -> S : sends request(building1,building2)
+
+S -> GUI : response status
+GUI -> GC : shows list of passages
+
+
+@enduml

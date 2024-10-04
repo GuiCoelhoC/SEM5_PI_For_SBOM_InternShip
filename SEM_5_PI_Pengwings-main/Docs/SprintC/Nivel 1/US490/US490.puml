@@ -1,0 +1,16 @@
+@startuml
+
+actor "Task Manager" as AM
+participant System
+
+activate AM
+AM -> System: requests to list all assignments
+activate System
+System -> System: get all assignments
+System -> AM: shows all assignments
+
+AM -> System: requests to sort assignments
+System -> System: sort assignments
+System -> AM: shows sorted assignments
+
+@enduml

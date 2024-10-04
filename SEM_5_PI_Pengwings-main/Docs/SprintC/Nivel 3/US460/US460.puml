@@ -1,0 +1,63 @@
+@startuml
+
+actor TM as "Task Manager"
+participant View as V
+participant Component as C
+participant FrontEndService as FES
+participant AssignmentController as AC
+participant AssignmentService as AS
+participant AssignmentRepository as AR
+participant CreatingAssignmentDto as dto
+participant Assignment as A
+
+activate TM
+TM -> V: want to request an assignment
+activate V
+V -> TM: show assignment request form
+deactivate V
+TM -> V: data[startPoint, endPoint, type]
+activate V
+V -> C: data
+activate C
+C -> FES: getToken()
+activate FES
+FES -> C: token
+deactivate FES
+C -> FES: createAssignment(data, token)
+activate FES
+FES -> AC: createAssignment(body)
+activate AC
+AC -> dto: http body
+activate dto
+dto -> AC: dto
+deactivate dto
+
+AC -> AS: addAssignment(dto)
+
+activate AS
+AS -> AS: decodeJwtTokenEmail(dto.token)
+AS -> AR: getAssignments()
+
+activate AR
+AR -> AS: assignments
+deactivate AR
+
+AS -> A: new Assignment(dto, type, email, assignments.count+1)
+
+AS -> AR: AddAsync(Assignment)
+
+AS -> AC: return new AssignmentDto(Assignment)
+deactivate AS
+
+AC -> FES: return AssignmentDto(Assignment)
+deactivate AC
+
+FES -> C: return success
+deactivate FES
+
+C -> V: display success message
+deactivate C
+V -> TM: show success message
+deactivate V
+
+@enduml

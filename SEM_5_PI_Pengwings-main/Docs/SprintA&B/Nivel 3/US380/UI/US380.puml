@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor CM as "Campus Manager"
+participant View  as V
+participant Controller as C
+participant Service as S
+participant HTTPDriver as H
+
+
+activate CM
+
+CM -> V :  selects robot listing option
+
+activate V
+
+
+
+V -> C : onList()
+
+activate C
+
+C -> S : function call to Service
+
+activate S
+
+
+S -> H : get('/api/robot')
+
+activate H
+
+H -> : sends request to API
+
+H -> S: return list of Robots
+
+deactivate H
+
+S -> C : return list of Robots
+
+deactivate S
+
+C -> V : return list of Robots
+
+V -> CM : shows list of all robots
+@enduml

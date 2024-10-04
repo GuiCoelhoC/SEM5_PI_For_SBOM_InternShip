@@ -1,0 +1,49 @@
+@startuml
+
+actor User
+participant View
+participant Component as C
+participant FrontEndService as FES
+participant AuthService as AS
+participant UserController as UC
+participant UserService as US
+participant UserRepository as UR
+participant User as U
+
+activate User
+User -> View : asks to get a copy of their profile
+activate View
+View -> C : getUser()
+activate C
+C -> AS : getToken()
+activate AS
+AS -> C : token
+deactivate AS
+C -> FES : getUser(token)
+activate FES
+FES -> UC : getUser(token)
+activate UC
+UC -> US : getByToken(token)
+activate US
+US -> US : decodeJWTEmail(token)
+US -> UR : getByEmail(email)
+activate UR
+UR -> U : query email
+activate U
+U -> UR : user
+deactivate U
+UR -> US : user
+deactivate UR
+US -> UC : userdto
+deactivate US
+UC -> FES : userdto
+deactivate UC
+FES -> C : user
+deactivate FES
+C -> View : display user information
+deactivate C
+View -> User : shows user information
+deactivate View
+deactivate User
+
+@enduml

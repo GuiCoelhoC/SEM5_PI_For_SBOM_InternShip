@@ -1,0 +1,93 @@
+@startuml
+
+hide circle
+hide empty members
+
+skinparam padding 1
+
+
+skinparam interface {
+    backgroundColor #0faaff
+}
+
+skinparam component {
+    backgroundColor #0faaff
+}
+
+interface UI_Campus as "**UI Campus**"
+interface UI_Fleet as "**UI Fleet**"
+interface API_Fleet as "**API Fleet**"
+interface API_Campus as "**API Campus**"
+
+component UI <<component>> <<C4 container>> as "**FrontEnd (UI)**" {
+port p1 as " " #0faaff
+port p2 as " " #0faaff
+port p3 as " " #0faaff
+port p4 as " " #0faaff
+
+        component View <<component>> as "**View**"{
+            port p5 as " " #0faaff
+            port p6 as " " #0faaff
+        }
+        component HTTPDriver <<component>> as "**HTTP Driver**"{
+           port p7 as " " #0faaff
+           port p8 as " " #0faaff
+        }
+        component ViewModel <<component>> as "**View Model**"
+        component Controller <<component>> as "**Controller**"
+        component Service <<component>> as "**Service**"
+        component Model <<component>> as "**Model**"
+        component Repository <<component>> as "**Repo/Adapter**"
+        component DTO <<component>> as "**DTO Exterior-Interior**"
+        component DTO1 <<component>> as "**DTO Service-Controller**"
+
+        interface C_API as "**Controller** \n **API**"
+        interface VM_API as "**View Model** \n **API**"
+        interface Ob_API as "**Observer** \n **API**"
+        interface S_API as "**Service** \n **API**"
+        interface R_API as "**Repo** \n **API**"
+        interface HTTP_API as "**HTTP Driver** \n **API**"
+        interface DTO_API as "**DTO** \n **API**"
+        interface Model_API as "**Model** \n **API**"
+        interface DTO2_API as "**DTO2** \n **API**"
+
+UI_Campus -d- p1
+UI_Fleet -d- p2
+p1 -- p5
+p2 -- p6
+"View" -right- Ob_API
+Ob_API )-- "ViewModel"
+"View" -down-( C_API
+"View" -down-( VM_API
+C_API -down- Controller
+VM_API -down- Controller
+VM_API )-- ViewModel
+Controller -down-( S_API
+Controller -down-( DTO2_API
+S_API -down- Service
+DTO2_API -down- Service
+DTO2_API )-down- DTO1
+
+
+
+
+API_Fleet )-down- p3
+API_Campus )-down- p4
+p3 -- p7
+p4 -- p8
+HTTPDriver -down- HTTP_API
+HTTP_API )-down- "Repository"
+HTTPDriver -down-( DTO_API
+DTO_API -right- DTO
+"Repository" -left- R_API
+R_API )-left-"Service"
+"Repository" ..> "Service"
+Service -down-( Model_API
+Model -down- Model_API
+Model_API )-down- "Repository"
+
+
+
+}
+
+@enduml

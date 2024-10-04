@@ -1,0 +1,13 @@
+<!-- Topbar -->
+<div class="centered_menu" style="display: flex; flex-direction: column; align-items: center;">
+    <h1> Functionalities: </h1>
+    <div style="display: relative; justify-content: center;">
+        <a routerLink="/building"><button class="button" style="vertical-align:middle" (click)="showBuildings()"><span>Buildings</span></button></a>
+        <a routerLink="/floor"><button class="button" style="vertical-align:middle" (click)="showFloors()"><span>Floors</span></button></a>
+        <a routerLink="/elevator"><button class="button" style="vertical-align:middle" (click)="showElevators()"><span>Elevators</span></button></a>
+        <a routerLink="/room"><button class="button" style="vertical-align:middle" (click)="showRooms()"><span>Rooms</span></button></a>
+        <a routerLink="/passage"><button class="button" (click)="showPassages()"><span>Passages</span></button></a>
+        <a routerLink="/visualization-3D"><button class="button" (click)="selectVisualization3D()"><span>Visualization 3D</span></button></a>
+        <button class="button" (click)="back()"><span>Back</span></button>
+    </div>
+</div>

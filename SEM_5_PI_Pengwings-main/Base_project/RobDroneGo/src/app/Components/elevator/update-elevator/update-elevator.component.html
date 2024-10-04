@@ -1,0 +1,30 @@
+<body class="text-center">
+<div class="form-floating">
+  <label for="buildingSelected">Building Code</label>
+  <select id="buildingSelected" [(ngModel)]="elevatorSelected" (change)="onSelectedElevator()" >
+    <option *ngFor = "let elevator of elevators" [ngValue]="elevator">{{elevator.code}}</option>
+  </select>
+
+  <div id="floorSelection">
+    <label>Select Floors: </label>
+    <div *ngFor="let floor of buildingFloors; let i = index">
+      <input type="checkbox" id="floor{{i}}" (change)="updateSelectedFloors(i)">
+      <label for="floor{{i}}">{{ floor.floorNumber }}</label>
+    </div>
+  </div>
+
+  <label for="brand">Brand</label>
+  <input type="text" id="brand" placeholder="Brand" required>
+
+  <label for="model">Model</label>
+  <input type="text" id="model" placeholder="Model" required>
+
+  <label for="serialNumber">Serial Number</label>
+  <input type="text" id="serialNumber" placeholder="Serial Number" required>
+
+  <label for="description">Description</label>
+  <input type="text" id="description" placeholder="Description" required>
+
+  <button class="submit-button" type="submit" (click)="onUpdate()"> Update Elevator </button>
+</div>
+</body>

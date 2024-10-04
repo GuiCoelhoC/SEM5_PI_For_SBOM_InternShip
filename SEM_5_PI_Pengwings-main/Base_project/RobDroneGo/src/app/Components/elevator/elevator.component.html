@@ -1,0 +1,12 @@
+<div class = "top_menu">
+  <button class = "button-tab" (click) = "showCreateElevatorTab()"> Create Elevator </button>
+  <button class = "button-tab" (click) = "showListElevatorTab()"> List Elevator </button>
+  <button class = "button-tab" (click) = "showUpdateElevatorTab()"> Update Elevator </button>
+  <button class = "button-back" (click) = "back()"> Back </button>
+</div>
+
+<div class = "app-container">
+  <app-create-elevator *ngIf="createElevatorTab"></app-create-elevator>
+  <app-list-elevator *ngIf="listElevatorTab"></app-list-elevator>
+  <app-update-elevator *ngIf="updateElevatorTab"></app-update-elevator>
+</div>

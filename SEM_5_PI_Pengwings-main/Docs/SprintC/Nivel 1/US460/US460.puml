@@ -1,0 +1,18 @@
+@startuml
+
+actor TM as "Task Manager"
+participant System
+
+activate TM
+TM -> System: requests an assignment
+activate System
+System -> TM: shows request form
+deactivate System
+TM -> System: fills in request form
+activate System
+System -> System: validate request form
+System -> System: create request
+System -> TM: shows request success
+deactivate System
+
+@enduml

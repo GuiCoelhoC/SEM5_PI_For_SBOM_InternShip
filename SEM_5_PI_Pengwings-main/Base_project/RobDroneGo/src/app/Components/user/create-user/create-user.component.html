@@ -1,0 +1,29 @@
+<body class="text-center">
+  <div class="form-floating">
+    <label for="floatingFirstName">First Name *</label>
+    <input type="text" id="floatingFirstName" placeholder="First Name" required>
+
+    <label for="floatingLastName">Last Name *</label>
+    <input type="text" id="floatingLastName" placeholder="Last Name" required>
+
+    <label for="floatingEmail">Email *</label>
+    <input type="text" id="floatingEmail" placeholder="Email (Ex. xxx@isep.ipp.pt)" required>
+
+    <label for="floatingPhone">Phone number *</label>
+    <input type="text" id="floatingPhone" placeholder="Phone number" required>
+
+    <label for="floatingPassword">Password *</label>
+    <input type="text" id="floatingPassword" style="-webkit-text-security: disc;" placeholder="password (min 10 characters,1 capital letter, 1  non capital letter, 1 digit and 1 symbol )" required>
+
+    <label for="floatingRole">Role *</label>
+    <select id="floatingRole" name="role" required>
+        <option value="" disabled style="color: #ffffff;">Select a role</option>
+        <option value="Administrator">Administrator</option>
+        <option value="Fleet Manager">Fleet Manager</option>
+        <option value="Campus Manager">Campus Manager</option>
+        <option value="Task Manager">Task Manager</option>
+    </select>
+
+    <button class="submit-button" type="submit" (click)="createUser()"> Create User </button>
+  </div>
+</body>

@@ -1,0 +1,35 @@
+<body class="text-center">
+<form (submit)="createPassage()">
+  <div class="form-floating">
+    <label for="floatingPassageCode">Passage Code</label>
+    <input type="text" id="floatingPassageCode" placeholder="Passage Code" required>
+
+    <label for="buildingSelected1">Building 1</label>
+    <select id="buildingSelected1" [(ngModel)]="buildingSelected1" (change)="onSelectedBuilding1()">
+      <option *ngFor="let building of buildings" [ngValue]="building">{{ building.code }}</option>
+    </select>
+
+   <!-- <label for="floorSelected1">Floor 1</label>
+    <select id="floorSelected1" [(ngModel)]="floorSelected1">
+      <option *ngFor="let floor of floors1" [ngValue]="floor">{{ floor.floorNumber }}</option>
+    </select>-->
+
+    <label for="floatingPassageFloor1">Floor 1</label>
+    <input type="text" id="floatingPassageFloor1" placeholder="Floor 1" required>
+
+    <label for="buildingSelected2">Building 2</label>
+    <select id="buildingSelected2" [(ngModel)]="buildingSelected2"(change)="onSelectedBuilding2()">
+      <option *ngFor="let building of buildings" [ngValue]="building">{{ building.code }}</option>
+    </select>
+
+    <label for="floatingPassageFloor2">Floor 2</label>
+    <input type="text" id="floatingPassageFloor2" placeholder="Floor 2" required>
+<!--    <label for="floorSelected2">Floor 2</label>
+    <select id="floorSelected2" [(ngModel)]="floorSelected2">
+      <option *ngFor="let floor of floors2" [ngValue]="floor">{{ floor.floorNumber }}</option>
+    </select>-->
+
+    <button class="submit-button" type="submit">Create Passage</button>
+  </div>
+</form>
+</body>

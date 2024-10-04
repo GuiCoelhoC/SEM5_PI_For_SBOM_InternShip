@@ -1,0 +1,40 @@
+
+        //dimensions[0]: y1, dimensions[1]: x1, dimensions[2]: y2, dimensions[3]: x2
+        const dimensions = salaDTO.dimensions;
+        //door[0]: y, door[1]: x
+        const door = salaDTO.door;
+
+        if (name == undefined || floor == undefined || description == undefined || roomtype == undefined || dimensions == undefined || door == undefined) {
+            return Result.fail<Room>("Os dados da sala estão incompletos");
+        }
+        
+        if (dimensions[0] < 0 || dimensions[1] < 0 || dimensions[2] < 0 || dimensions[3] < 0) {
+            return Result.fail<Room>("As coordenadas da sala devem ser positivas");
+        }
+
+        if (dimensions[0] > dimensions[2] || dimensions[1] > dimensions[3]) {
+            return Result.fail<Room>("As coordenadas da sala devem estar alinhadas. y1 < y2 e x1 < x2");
+        }
+
+        if (door[0] < 0 || door[1] < 0) {
+            return Result.fail<Room>("As coordenadas da door devem ser positivas");
+        }
+
+        /*
+        a door deve estar na parte exterior da sala
+        por exemplo:
+        sala com dimensions (0,0) (2,2)
+        possiveis doors: (0,3) (1,3) (2,3) (3,0) (3,1) (3,2)
+        */
+       console.log('door[0]: ' + door[0] + ' door[1]: ' + door[1]);
+       console.log('dimensions[0]: ' + dimensions[0] + ' dimensions[1]: ' + dimensions[1] + ' dimensions[2]: ' + dimensions[2] + ' dimensions[3]: ' + dimensions[3]);
+        if (!(
+            (door[0] == dimensions[0] - 1 && door[1] >= dimensions[1] && door[1] <= dimensions[3]) ||
+            (door[0] == dimensions[2] + 1 && door[1] >= dimensions[1] && door[1] <= dimensions[3]) ||
+            (door[1] == dimensions[1] - 1 && door[0] >= dimensions[0] && door[0] <= dimensions[2]) ||
+            (door[1] == dimensions[3] + 1 && door[0] >= dimensions[0] && door[0] <= dimensions[2])
+        )){
+            return Result.fail<Room>("A door deve estar na parte exterior da sala");
+        }
+
+room dimensions
